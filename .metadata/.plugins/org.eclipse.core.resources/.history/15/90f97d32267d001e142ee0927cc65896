@@ -1,0 +1,5 @@
+package com.shoplaptop.dao;
+
+public interface ShopLaptop365DAO {
+
+}
