@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class XJdbc {
 	
 	private final String ServerName = "localhost";
-	private final String DBName = "";
+	private final String DBName = "PM_Ban_Laptop";
 	private final String PortNumber = "1433";
 	private final String User = "sa";
 	private final String Pass = "nguyenmanh2707";
