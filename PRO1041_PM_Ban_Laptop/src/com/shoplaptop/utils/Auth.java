@@ -1,9 +1,9 @@
 package com.shoplaptop.utils;
 
-import com.shoplaptop.entity.NhanVien;
+import com.shoplaptop.entity.TaiKhoan;
 
 public class Auth {
-	public static NhanVien user = null;
+	public static TaiKhoan user = null;
 	
 	public static void clear() {
 		Auth.user = null;
@@ -12,9 +12,9 @@ public class Auth {
 	public static boolean isLogin() {
 		return Auth.user != null;
 	}
-	/*Create entity NhanVien with Vaitro is boolean*/
-//	public static boolean isManager() {
-//		return Auth.isLogin() && user.isVaiTro();
-//	}
+	
+	public static boolean isManager() {
+		return Auth.isLogin() && user.isVaiTro();
+	}
 	
 }
