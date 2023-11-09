@@ -189,6 +189,7 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btnSnPhm);
 		
 		JButton btnPhiuGimGi = new JButton("Phiếu giảm giá");
+                
 		btnPhiuGimGi.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/Statistics.png")));
 		btnPhiuGimGi.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnPhiuGimGi.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -222,5 +223,6 @@ public class ShopLaptop365 extends JFrame {
 			mntmNhanVien.setEnabled(false);
 		}
 		setResizable(false);
+                
 	}
 }
