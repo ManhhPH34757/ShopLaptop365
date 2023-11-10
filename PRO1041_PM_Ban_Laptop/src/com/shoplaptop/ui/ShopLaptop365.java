@@ -19,6 +19,10 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -36,7 +40,7 @@ public class ShopLaptop365 extends JFrame {
 					ShopLaptop365 frame = new ShopLaptop365();
 					frame.setVisible(true);
 				} catch (Exception e) {
-					e.printStackTrace();
+                                    e.printStackTrace();
 				}
 			}
 		});
@@ -194,6 +198,11 @@ public class ShopLaptop365 extends JFrame {
 		btnPhiuGimGi.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnPhiuGimGi.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPhiuGimGi.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+               btnPhiuGimGi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            new FormPhieuGiamGia().setVisible(true);
+			}
+		});
 		toolBar.add(btnPhiuGimGi);
 		
 		JButton btntGimGi = new JButton("Đợt giảm giá");

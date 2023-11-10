@@ -26,8 +26,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
     /**
      * Creates new form PhieuGiamGia
      */
-    public FormPhieuGiamGia(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public FormPhieuGiamGia() {
         initComponents();
         setLocationRelativeTo(this);
         initTable();
@@ -321,7 +320,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(txtTimKiem)))
-                        .addGap(0, 46, Short.MAX_VALUE)))
+                        .addGap(0, 52, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -367,9 +366,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,7 +413,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
         // TODO add your handling code here:
         if(findByMaPG(txtTimKiem.getText())==null){
-            JOptionPane.showMessageDialog(this, "Không tìm thấy phiếu giảm giá");
+            MsgBox.alert(this, "Không tìm thấy phiếu giảm giá");
         } else {
             list.add(findByMaPG(txtTimKiem.getText()));
             tblModel.setRowCount(0);
@@ -488,7 +485,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormPhieuGiamGia dialog = new FormPhieuGiamGia(new javax.swing.JFrame(), true);
+                FormPhieuGiamGia dialog = new FormPhieuGiamGia();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
