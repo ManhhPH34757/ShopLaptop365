@@ -6,7 +6,7 @@ import java.util.Date;
 public class XDate {
 	
 	static SimpleDateFormat formater = new SimpleDateFormat();
-	public Date toDate(String date, String pattern) {
+	public static Date toDate(String date, String pattern) {
 		try {
 			formater.applyPattern(pattern);
 			return formater.parse(date);
@@ -15,7 +15,7 @@ public class XDate {
 		}
 	}
 	
-	public String toString(Date date, String pattern) {
+	public static String toString(Date date, String pattern) {
 		try {
 			if (date == null) {
 				return "";
@@ -27,7 +27,7 @@ public class XDate {
 		}
 	}
 	
-	public Date addDays(Date date, long days) {
+	public static Date addDays(Date date, long days) {
 		try {
 			date.setTime(date.getTime()+days*24*60*60*1000);
 			return date;
