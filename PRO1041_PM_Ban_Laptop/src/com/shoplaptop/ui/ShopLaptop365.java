@@ -19,6 +19,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -210,6 +212,11 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btnNewButton_8);
 		
 		JButton btnNewButton_9 = new JButton("Nhân viên");
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new QLNhanVien().setVisible(true);
+			}
+		});
 		btnNewButton_9.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/User.png")));
 		btnNewButton_9.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnNewButton_9.setHorizontalTextPosition(SwingConstants.CENTER);
