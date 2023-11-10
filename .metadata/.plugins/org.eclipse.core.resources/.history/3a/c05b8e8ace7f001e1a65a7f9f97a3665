@@ -1,0 +1,45 @@
+package com.shoplaptop.dao;
+
+import java.util.List;
+
+import com.shoplaptop.entity.Hinhthucvanchuyen;
+
+public class Vanchuyenservice implements ShopLaptop365DAO<Hinhthucvanchuyen, String>{
+
+	@Override
+	public String insert(Hinhthucvanchuyen entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(Hinhthucvanchuyen entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Hinhthucvanchuyen selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Hinhthucvanchuyen> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Hinhthucvanchuyen> selectBySQL(String sql, Object... args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

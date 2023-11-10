@@ -1,0 +1,45 @@
+package com.shoplaptop.dao;
+
+import java.util.List;
+
+import com.shoplaptop.entity.Hinhthucthanhtoan;
+
+public class Thanhtoanservice implements ShopLaptop365DAO<Hinhthucthanhtoan, String>{
+
+	@Override
+	public String insert(Hinhthucthanhtoan entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(Hinhthucthanhtoan entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Hinhthucthanhtoan selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Hinhthucthanhtoan> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Hinhthucthanhtoan> selectBySQL(String sql, Object... args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

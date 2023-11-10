@@ -33,7 +33,6 @@
     <fullyQualifiedTypeName name="com.shoplaptop.ui.NhanVienManager"/>
     <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
     <fullyQualifiedTypeName name="java.io.StreamCorruptedException"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.dao.ShopLaptop365DAO"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -49,13 +48,16 @@
     <fullyQualifiedTypeName name="javax.swing.ButtonGroup"/>
     <fullyQualifiedTypeName name="com.shoplaptop.utils.Auth"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.shoplaptop.utils.XJdbc"/>
     <fullyQualifiedTypeName name="com.shoplaptop.entity.NhanVien"/>
     <fullyQualifiedTypeName name="com.shoplaptop.dao.NhanVienService"/>
     <fullyQualifiedTypeName name="com.shoplaptop.ui.QLNhanVien"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.shoplaptop.utils.MsgBox"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="com.shoplaptop.dao.ShopLaptop365DAO"/>
+    <fullyQualifiedTypeName name="com.shoplaptop.entity.Hinhthucthanhtoan"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.shoplaptop.entity.Hinhthucvanchuyen"/>
 </qualifiedTypeNameHistroy>
