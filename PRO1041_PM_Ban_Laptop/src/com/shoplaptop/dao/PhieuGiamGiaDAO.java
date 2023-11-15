@@ -31,6 +31,9 @@ public class PhieuGiamGiaDAO {
                 dspg.add(new PhieuGiamGia(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getFloat(5), rs.getFloat(6)));
             }
             System.out.println(dspg.get(0).toString());
+            System.out.println(dspg.get(1).toString());
+            System.out.println(dspg.get(2).toString());
+            System.out.println(dspg.get(3).toString());
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -45,8 +48,8 @@ public class PhieuGiamGiaDAO {
             ps.setString(2, pgg.getTenPhieu());
             ps.setString(3, new XDate().toString(pgg.getHan(), "yyyy-MM-dd"));
             ps.setInt(4, pgg.getSoLuong());
-            ps.setFloat(5, pgg.getGiaGiam());
-            ps.setFloat(6, pgg.getDieuKienGiam());
+            ps.setDouble(5, pgg.getGiaGiam());
+            ps.setDouble(6, pgg.getDieuKienGiam());
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -77,8 +80,8 @@ public class PhieuGiamGiaDAO {
             ps.setString(1, pgg.getTenPhieu());
             ps.setString(2, new XDate().toString(pgg.getHan(), "yyyy-MM-dd"));
             ps.setInt(3, pgg.getSoLuong());
-            ps.setFloat(4, pgg.getGiaGiam());
-            ps.setFloat(5, pgg.getDieuKienGiam());
+            ps.setDouble(4, pgg.getGiaGiam());
+            ps.setDouble(5, pgg.getDieuKienGiam());
             ps.setString(6, pgg.getMaPG());
             ps.executeUpdate();
             con.close();
@@ -86,6 +89,43 @@ public class PhieuGiamGiaDAO {
             System.out.println(e);
         }
     }
+    public void FindPhieu(String MaPG , String TenPhieu){
+        try {
+            String sql = "select * from PhieuGiamGia where TenPhieu like ? or MaPG like ? ";
+        } catch (Exception e) {
+        }
+    }
+    public ArrayList<PhieuGiamGia> getALLDAOLOC(){
+        String sql="select * from PhieuGiamGia";
+        return getALLSQL(sql);
+    }
+    public ArrayList<PhieuGiamGia> getALLDAOLOCCONHAN(){
+        String sql="select * from PhieuGiamGia where Han>(SELECT CAST(SYSDATETIME() AS DATE) AS CurrentDate)";
+        return getALLSQL(sql);
+    }
+    public ArrayList<PhieuGiamGia> getALLDAOLOCHETHAN(){
+        String sql="select * from PhieuGiamGia where Han<(SELECT CAST(SYSDATETIME() AS DATE) AS CurrentDate)";
+        return getALLSQL(sql);
+    }
+    public ArrayList<PhieuGiamGia> getALLSQL(String sql){
+        ArrayList<PhieuGiamGia> dspg = new ArrayList<>();
+        try {
+            con = new XJdbc().Connect();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                dspg.add(new PhieuGiamGia(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getFloat(5), rs.getFloat(6)));
+            }
+//            System.out.println(dspg.get(0).toString());
+//            System.out.println(dspg.get(1).toString());
+//            System.out.println(dspg.get(2).toString());
+//            System.out.println(dspg.get(3).toString());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return dspg;
+    }
+    
     public static void main(String[] args) {
         PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         pggdao.getALLDAO();

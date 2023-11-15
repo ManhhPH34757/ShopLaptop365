@@ -15,13 +15,13 @@ public class PhieuGiamGia {
     private String TenPhieu;
     private Date Han;
     private int SoLuong;
-    private float GiaGiam;
-    private float DieuKienGiam;
+    private double GiaGiam;
+    private double DieuKienGiam;
 
     public PhieuGiamGia() {
     }
 
-    public PhieuGiamGia(String MaPG, String TenPhieu, Date Han, int SoLuong, float GiaGiam, float DieuKienGiam) {
+    public PhieuGiamGia(String MaPG, String TenPhieu, Date Han, int SoLuong, double GiaGiam, double DieuKienGiam) {
         this.MaPG = MaPG;
         this.TenPhieu = TenPhieu;
         this.Han = Han;
@@ -62,19 +62,19 @@ public class PhieuGiamGia {
         this.SoLuong = SoLuong;
     }
 
-    public float getGiaGiam() {
+    public double getGiaGiam() {
         return GiaGiam;
     }
 
-    public void setGiaGiam(float GiaGiam) {
+    public void setGiaGiam(double GiaGiam) {
         this.GiaGiam = GiaGiam;
     }
 
-    public float getDieuKienGiam() {
+    public double getDieuKienGiam() {
         return DieuKienGiam;
     }
 
-    public void setDieuKienGiam(float DieuKienGiam) {
+    public void setDieuKienGiam(double DieuKienGiam) {
         this.DieuKienGiam = DieuKienGiam;
     }
 
@@ -82,6 +82,7 @@ public class PhieuGiamGia {
     public String toString() {
         return "PhieuGiamGia{" + "MaPG=" + MaPG + ", TenPhieu=" + TenPhieu + ", Han=" + Han + ", SoLuong=" + SoLuong + ", GiaGiam=" + GiaGiam + ", DieuKienGiam=" + DieuKienGiam + '}';
     }
-    
+
+  
     
 }

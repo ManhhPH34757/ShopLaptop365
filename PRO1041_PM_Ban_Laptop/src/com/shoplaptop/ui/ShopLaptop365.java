@@ -198,11 +198,7 @@ public class ShopLaptop365 extends JFrame {
 		btnPhiuGimGi.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnPhiuGimGi.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPhiuGimGi.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-               btnPhiuGimGi.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-                            new FormPhieuGiamGia().setVisible(true);
-			}
-		});
+              
 		toolBar.add(btnPhiuGimGi);
 		
 		JButton btntGimGi = new JButton("Đợt giảm giá");
