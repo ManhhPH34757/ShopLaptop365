@@ -8,31 +8,34 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import com.shoplaptop.entity.NhanVien;
+import com.shoplaptop.utils.XDate;
 import com.shoplaptop.utils.XJdbc;
 
 public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
+	
 	Connection connection = new XJdbc().Connect();
 	Statement st = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 	
-	ArrayList<NhanVien> list = new ArrayList<NhanVien>();
 	
-	String Insert_SQL = "INSERT INTO NhanVien (MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi) VALUES (?,?,?,?,?,?,?,?) "
-					+ "INSERT INTO dbo.TaiKhoan(MaNV, TenDangNhap, MatKhau, VaiTro) VALUES(?,?,?,?)";
+	String Insert_SQL = "INSERT INTO NhanVien (MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi) VALUES (?,?,?,?,?,?,?,?) ";
+					
 	String Delete_SQL = "DELETE FROM dbo.NhanVien WHERE MaNV = ?";
 			
-	String Update_SQL = "UPDATE dbo.NhanVien SET HoTen =? , SoDienThoai =? , NgaySinh =? , GioiTinh =? , Email =? , Hinh =? , DiaChi =? WHERE MaNV =? "
-			+ "UPDATE dbo.TaiKhoan SET TenDangNhap =? , MatKhau =? , VaiTro =? WHERE MaNV =?";
-	String SelectById_SQL = "SELECT * FROM dbo.NhanVien WHERE MaNV = ?\r\n"
-					+ "SELECT * FROM dbo.TaiKhoan WHERE MaNV = ?";
+	String Update_SQL = "UPDATE dbo.NhanVien SET HoTen =? , SoDienThoai =? , NgaySinh =? , GioiTinh =? , Email =? , Hinh =? , DiaChi =? WHERE MaNV =? ";
+			
+	String SelectById_SQL = "SELECT NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV Where NhanVien.MaNV = ?";
+		
+	String selectAll = "SELECT NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV";
 	
 	@Override	
 	public String insert(NhanVien entity) {
 		try {
-			XJdbc.update(Insert_SQL, entity.getMaNV(),entity.getHoTen(),entity.getSoDienThoai(),entity.getNgaySinh(),entity.isGioiTinh(),entity.getEmail(),entity.getHinh(),entity.getDiaChi(),
-					entity.getMaNV(),entity.getTendangnhap(),entity.getMatkhau(),entity.isVaitro());
+			XJdbc.update(Insert_SQL, entity.getMaNV(),entity.getHoTen(),entity.getSoDienThoai(),entity.getNgaySinh(),entity.isGioiTinh(),entity.getEmail(),entity.getHinh(),entity.getDiaChi());
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -43,14 +46,13 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 	@Override
 	public String update(NhanVien entity) {
 		try {
-			XJdbc.update(Update_SQL, entity.getHoTen(),entity.getSoDienThoai(),entity.getNgaySinh(),entity.isGioiTinh(),entity.getEmail(),entity.getHinh(),entity.getDiaChi(),entity.getMaNV(),
-					entity.getTendangnhap(),entity.getMatkhau(),entity.isVaitro(),entity.getMaNV());
-			
+			XJdbc.update(Update_SQL, entity.getHoTen(),entity.getSoDienThoai(),entity.getNgaySinh(),entity.isGioiTinh(),entity.getEmail(),entity.getHinh(),entity.getDiaChi(),entity.getMaNV());
+			return "Update thành công";
 		} catch (Exception e) {
 			System.out.println(e);
-			// TODO: handle exception
+			return "Update k thành công";
 		}
-		return null;
+		
 	}
 
 	@Override
@@ -58,11 +60,13 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 		
 		try {
 			XJdbc.update(Delete_SQL, id);
+			return "Xóa thành công";
 		} catch (Exception e) {
 			System.out.println(e);
+			return "Xóa k thành công";
 			// TODO: handle exception
 		}
-		return null;
+		
 	}
 
 	@Override
@@ -76,38 +80,14 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 
 	@Override
 	public List<NhanVien> selectAll() {
-		try {
-			String selectall = "SELECT * FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV";
-			st = connection.createStatement();
-			rs = st.executeQuery(selectall);
-			while (rs.next()) {
-				String manv = rs.getString("MaNv");
-				String hoten = rs.getString("HoTen");
-				String Sodienthoai = rs.getString("SoDienThoai");
-				Date ngaysinh = rs.getDate("NgaySinh");
-				boolean Gioitinh = rs.getBoolean("GioiTinh");
-				String email = rs.getString("Email");
-				String Hinh = rs.getString("Hinh");
-				String Diachi = rs.getString("DiaChi");
-				String tendangnhap = rs.getString("TenDangNhap");
-				String matkhau = rs.getString("MatKhau");
-				boolean VaiTro = rs.getBoolean("VaiTro");
-				
-				
-				NhanVien nhanVien = new NhanVien(manv, hoten, Sodienthoai, ngaysinh, Gioitinh, email, Hinh, Diachi, tendangnhap, matkhau, VaiTro);
-				list.add(nhanVien);
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-			// TODO: handle exception
-		}
-		
-		return list;
+		return selectBySQL(selectAll);
 	}
 
 	@Override
 	public List<NhanVien> selectBySQL(String sql, Object... args) {
+		
 		List<NhanVien> list = new ArrayList<NhanVien>();
+		
 		try {
 			ResultSet rs = XJdbc.query(sql, args);
 			while (rs.next()) {
@@ -118,8 +98,10 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 				nhanVien.setGioiTinh(rs.getBoolean("GioiTinh"));
 				nhanVien.setEmail(rs.getString("Email"));
 				nhanVien.setHinh(rs.getString("Hinh"));
-				nhanVien.setTendangnhap(rs.getString("TenDangNhap"));
-				nhanVien.setMatkhau(rs.getString("MatKhau"));
+				nhanVien.setDiaChi(rs.getString("DiaChi"));
+				nhanVien.setNgaySinh(XDate.toDate(rs.getString("NgaySinh"), "YYYY-MM-dd"));
+//				nhanVien.setTendangnhap(rs.getString("TenDangNhap"));
+//				nhanVien.setMatkhau(rs.getString("MatKhau"));
 				nhanVien.setVaitro(rs.getBoolean("VaiTro"));
 				list.add(nhanVien);
 				
@@ -128,8 +110,9 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
+			throw new RuntimeException(e);
 		}
-		return null;
+	
 	}
 		
 		

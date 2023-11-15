@@ -2,6 +2,8 @@ package com.shoplaptop.entity;
 
 import java.util.Date;
 
+import com.shoplaptop.utils.XDate;
+
 public class NhanVien {
 	private String maNV;
 	private String hoTen;
@@ -11,12 +13,13 @@ public class NhanVien {
 	private String email;
 	private String hinh;
 	private String diaChi;
-	private String tendangnhap;
-	private String matkhau;
+//	private String tendangnhap;
+//	private String matkhau;
 	private boolean vaitro;
 	public NhanVien() {
 		super();
 	}
+	
 	public NhanVien(String maNV, String hoTen, String soDienThoai, Date ngaySinh, boolean gioiTinh, String email,
 			String hinh, String diaChi, String tendangnhap, String matkhau, boolean vaitro) {
 		super();
@@ -28,8 +31,8 @@ public class NhanVien {
 		this.email = email;
 		this.hinh = hinh;
 		this.diaChi = diaChi;
-		this.tendangnhap = tendangnhap;
-		this.matkhau = matkhau;
+//		this.tendangnhap = tendangnhap;
+//		this.matkhau = matkhau;
 		this.vaitro = vaitro;
 	}
 	public String getMaNV() {
@@ -80,30 +83,32 @@ public class NhanVien {
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
 	}
-	public String getTendangnhap() {
-		return tendangnhap;
-	}
-	public void setTendangnhap(String tendangnhap) {
-		this.tendangnhap = tendangnhap;
-	}
-	public String getMatkhau() {
-		return matkhau;
-	}
-	public void setMatkhau(String matkhau) {
-		this.matkhau = matkhau;
-	}
+//	public String getTendangnhap() {
+//		return tendangnhap;
+//	}
+//	public void setTendangnhap(String tendangnhap) {
+//		this.tendangnhap = tendangnhap;
+//	}
+//	public String getMatkhau() {
+//		return matkhau;
+//	}
+//	public void setMatkhau(String matkhau) {
+//		this.matkhau = matkhau;
+//	}
 	public boolean isVaitro() {
 		return vaitro;
 	}
 	public void setVaitro(boolean vaitro) {
 		this.vaitro = vaitro;
 	}
+
 	@Override
 	public String toString() {
-		return "NhanVien [maNV=" + maNV + ", hoTen=" + hoTen + ", soDienThoai=" + soDienThoai + ", ngaySinh=" + ngaySinh
-				+ ", gioiTinh=" + gioiTinh + ", email=" + email + ", hinh=" + hinh + ", diaChi=" + diaChi
-				+ ", tendangnhap=" + tendangnhap + ", matkhau=" + matkhau + ", vaitro=" + vaitro + "]";
+		return "NhanVien [maNV=" + maNV + ", hoTen=" + hoTen + ", soDienThoai=" + soDienThoai + ", ngaySinh=" + XDate.toString(ngaySinh, "yyyy-MM-dd")
+				+ ", gioiTinh=" + gioiTinh + ", email=" + email + ", hinh=" + hinh + ", diaChi=" + diaChi + ", vaitro="
+				+ vaitro + "]";
 	}
+
 	
 	
 	

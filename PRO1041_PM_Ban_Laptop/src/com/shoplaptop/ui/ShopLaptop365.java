@@ -21,6 +21,8 @@ import javax.swing.JSeparator;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -116,6 +118,22 @@ public class ShopLaptop365 extends JFrame {
 		mnQuanLy.add(mntmPhieuDoiTra);
 		
 		JMenuItem mntmNhanVien = new JMenuItem("Nhân viên");
+//		mntmNhanVien.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				new QLNhanVien().setVisible(true);
+//			}
+//		});
+//		mntmNhanVien.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				new QLNhanVien().setVisible(true);
+//			}
+//		});
+//		mntmNhanVien.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+////				new QLNhanVien().setVisible(true);
+//			}
+//		});
 		mntmNhanVien.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/User.png")));
 		mntmNhanVien.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		mnQuanLy.add(mntmNhanVien);
