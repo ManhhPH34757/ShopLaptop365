@@ -70,7 +70,7 @@ public class QLNhanVien extends JDialog {
 	private JPasswordField txtmatkhau;
 	private TaiKhoanDAO dao = new TaiKhoanDAO();
 	private JTextField txttimkiem;
-	
+	private LS_NhanVien ls_NhanVien = new LS_NhanVien(QLNhanVien.this);
 	
 	
 	String SelectById_SQL = "SELECT NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV Where NhanVien.MaNV like ? OR HoTen LIKE ? OR SoDienThoai LIKE ? ";
@@ -226,20 +226,24 @@ public class QLNhanVien extends JDialog {
 		
 		
 		tblquanlynhanvien = new JTable(model);
-		tblquanlynhanvien.setFillsViewportHeight(true);
 		tblquanlynhanvien.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				boolean check = true;
+				int index = tblquanlynhanvien.getSelectedRow();
 				try {
-					
-					int index = tblquanlynhanvien.getSelectedRow();
-					if (index >= service.selectAll().size()) {
-						MsgBox.alert(contentPanel, "Chọn NV");
+					if (index == -1) {
+						check = false;
+						
 					}
-					new LS_NhanVien(QLNhanVien.this).setVisible(true);
-					setFormChiTiet(new NhanVienService().selectById(String.valueOf(tblquanlynhanvien.getValueAt(index, 0)))); // setForm này sai rồi, hsau tớ fix cho 
+					
 				} catch (Exception e2) {
 					MsgBox.alert(contentPanel, "Vui lòng chọn nhân viên");
+					check = false;
+				}
+				if (check) {
+					new LS_NhanVien(QLNhanVien.this).setVisible(true);
+					setFormChiTiet(new NhanVienService().selectById(String.valueOf(tblquanlynhanvien.getValueAt(index, 0))));
 				}
 			}
 		});

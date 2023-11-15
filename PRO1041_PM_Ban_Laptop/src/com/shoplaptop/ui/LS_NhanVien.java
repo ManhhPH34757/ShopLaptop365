@@ -230,7 +230,14 @@ public class LS_NhanVien extends JDialog {
 		buttonGroup2.add(rdonhanvien);
 		buttonGroup2.add(rdoquanly);
 		
-		JButton btnBoCoBn_1 = new JButton("Báo cáo ");
+		JButton btnBoCoBn_1 = new JButton("Thoát");
+		btnBoCoBn_1.setIcon(new ImageIcon(LS_NhanVien.class.getResource("/com/shoplaptop/icon/Log out.png")));
+		btnBoCoBn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+			
+		});
 		btnBoCoBn_1.setBounds(414, 512, 115, 33);
 		getContentPane().add(btnBoCoBn_1);
 
