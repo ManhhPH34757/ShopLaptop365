@@ -17,6 +17,9 @@ public class LS_HoaDonDao implements ShopLaptop365DAO<BaoCao_LS_HoaDon, String>{
 	ResultSet rs = null;
 	
 	String SellectAll = "SELECT * FROM dbo.LS_PhieuDoi WHERE MaNV =?";
+	
+	String  deleteSQL = "DELETE FROM dbo.LS_HoaDon WHERE MaNV = ?";
+			
 	@Override
 	public String insert(BaoCao_LS_HoaDon entity) {
 		// TODO Auto-generated method stub
@@ -31,8 +34,14 @@ public class LS_HoaDonDao implements ShopLaptop365DAO<BaoCao_LS_HoaDon, String>{
 
 	@Override
 	public String delete(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			XJdbc.update(deleteSQL, id);
+			return "Xóa thành công";
+		} catch (Exception e) {
+			System.out.println(e);
+			return "Xóa k thành công";
+			// TODO: handle exception
+		}
 	}
 
 	@Override

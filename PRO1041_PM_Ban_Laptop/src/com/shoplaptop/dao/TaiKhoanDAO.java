@@ -20,7 +20,7 @@ public class TaiKhoanDAO implements ShopLaptop365DAO<TaiKhoan, String> {
 	
 	String Insert_sql = "INSERT INTO dbo.TaiKhoan( MaNV,TenDangNhap, MatKhau,VaiTro)VALUES( ?,?,?,? )";
 
-	String Update_sql = "UPDATE dbo.TaiKhoan SET TenDangNhap = ? , MatKhau =? WHERE MaNV =?";
+	String Update_sql = "UPDATE dbo.TaiKhoan SET VaiTro =? WHERE MaNV =?";
 	
 	String DeleteString_sql = "DELETE FROM dbo.TaiKhoan WHERE MaNV =?";
 	
@@ -45,7 +45,7 @@ public class TaiKhoanDAO implements ShopLaptop365DAO<TaiKhoan, String> {
 	@Override
 	public String update(TaiKhoan taiKhoan) {
 		try {
-			XJdbc.update(Update_sql, taiKhoan.getTenDangNhap(),taiKhoan.getMatKhau(),taiKhoan.getMaNV());
+			XJdbc.update(Update_sql, taiKhoan.isVaiTro(),taiKhoan.getMaNV());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

@@ -43,6 +43,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
+//import java.io.File;
+//import java.io.FileOutputStream;
+//import java.io.IOException;
+//import org.apache.poi.ss.usermodel.*;
+//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 public class QLNhanVien extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtmanhanvien;
@@ -71,9 +77,20 @@ public class QLNhanVien extends JDialog {
 	private TaiKhoanDAO dao = new TaiKhoanDAO();
 	private JTextField txttimkiem;
 	private LS_NhanVien ls_NhanVien = new LS_NhanVien(QLNhanVien.this);
+	private int index = 1;
 	
 	
+	
+	String selectSQl_PhânTrang = "SELECT * FROM\r\n"
+			+ "    (SELECT ROW_NUMBER() OVER (ORDER BY MaNV) AS rownum,  * FROM dbo.NhanVien)\r\n"
+			+ "    AS temp\r\n"
+			+ "    WHERE rownum BETWEEN 1 AND 3";
 	String SelectById_SQL = "SELECT NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV Where NhanVien.MaNV like ? OR HoTen LIKE ? OR SoDienThoai LIKE ? ";
+	private JLabel lbldem;
+	private JLabel lblTo;
+	private JLabel lblTo_1;
+	private double size;
+	private int rows;
 
 	/**
 	 * Launch the application.
@@ -98,7 +115,7 @@ public class QLNhanVien extends JDialog {
 	public QLNhanVien() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(QLNhanVien.class.getResource("/com/shoplaptop/icon/365_1.png")));
 		setTitle("ShopLapTop365");
-		setBounds(100, 100, 1050, 582);
+		setBounds(100, 100, 1050, 605);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
@@ -118,7 +135,7 @@ public class QLNhanVien extends JDialog {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		lblimage = new JLabel("");
+		lblimage = new JLabel("          ChooseImage");
 		lblimage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -233,10 +250,8 @@ public class QLNhanVien extends JDialog {
 				int index = tblquanlynhanvien.getSelectedRow();
 				try {
 					if (index == -1) {
-						check = false;
-						
+						check = false;	
 					}
-					
 				} catch (Exception e2) {
 					MsgBox.alert(contentPanel, "Vui lòng chọn nhân viên");
 					check = false;
@@ -248,7 +263,7 @@ public class QLNhanVien extends JDialog {
 			}
 		});
 		scrollPane.setViewportView(tblquanlynhanvien);
-		filltable(service.selectAll());
+		filltable(service.sellectAllNhanVien(1));
 		
 		buttonGroup = new ButtonGroup();
 		buttonGroup.add(rdonu);
@@ -313,7 +328,63 @@ public class QLNhanVien extends JDialog {
 		txttimkiem.setBounds(10, 104, 665, 27);
 		getContentPane().add(txttimkiem);
 		txttimkiem.setColumns(10);
-
+		
+		
+		lbldem = new JLabel("1");
+		lbldem.setBounds(857, 541, 16, 13);
+		getContentPane().add(lbldem);
+		lblTo = new JLabel("to");
+		lblTo.setBounds(869, 541, 16, 13);
+		getContentPane().add(lblTo);
+		
+		lblTo_1 = new JLabel("-");
+		lblTo_1.setBounds(883, 541, 16, 13);
+		getContentPane().add(lblTo_1);
+		
+		JButton btnprev = new JButton("Trước ");
+		filltable(service.sellectAllNhanVien(index));
+		size = (double) service.selectAll().size()/3; 
+		rows = (int) Math.ceil(size);
+		lbldem.setText("1");
+		btnprev.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (index > 1) {
+					--index;
+					lbldem.setText(index + "");
+					filltable(service.sellectAllNhanVien((index - 1)*3+1));
+				}
+			}
+		});
+		btnprev.setBounds(762, 537, 85, 21);
+		getContentPane().add(btnprev);		
+		JButton btnnext = new JButton("Sau");
+		btnnext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (index < rows) {
+					++index;
+					lbldem.setText(index + "");
+					filltable(service.sellectAllNhanVien((index - 1)*3+1));
+				}
+				
+			}
+		});
+		btnnext.setBounds(909, 537, 85, 21);
+		getContentPane().add(btnnext);
+		
+		
+		
+		lblTo_1.setText(rows+"");
+		
+		JButton btnNewButton = new JButton("Reset");
+		btnNewButton.setIcon(new ImageIcon(QLNhanVien.class.getResource("/com/shoplaptop/icon/Refresh.png")));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clearForm();
+			}
+		});
+		btnNewButton.setBounds(20, 530, 101, 27);
+		getContentPane().add(btnNewButton);
+	//	settable();
 	}
 	public void filltable(List<NhanVien> list) {
 		model.setRowCount(0);
@@ -419,7 +490,9 @@ public class QLNhanVien extends JDialog {
 		try {
 			service.insert(nhanVien);
 			dao.insert(taiKhoan);
-			filltable(service.selectAll());
+//			filltable(service.selectAll());
+			filltable(service.sellectAllNhanVien((index - 1)*3+1));
+			
 			clearForm();
 			MsgBox.alert(contentPanel,"Insert thành công");
 		} catch (Exception e) {
@@ -439,10 +512,10 @@ public class QLNhanVien extends JDialog {
 //	}
 	
 	public void FindMaNV() {
-
 		String manv_1 = txttimkiem.getText();
 		if (manv_1.trim().isEmpty()) {
 			manv_1 = "%%";
+			
 		}
 		list = service.selectBySQL(SelectById_SQL, "%" + manv_1 + "%","%" + manv_1 + "%" , "%" + manv_1 + "%");
 		
@@ -492,6 +565,14 @@ public class QLNhanVien extends JDialog {
 			
 		}
 	}
+//	public void Updatetaikhoan(TaiKhoan taiKhoan) {
+//		try {
+//			MsgBox.alert(contentPanel, dao.update(taiKhoan));
+//			filltable(dao.selectAll());
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//	}
 	
 	public void delete(NhanVien nhanVien) {
 		try {
@@ -563,9 +644,13 @@ public class QLNhanVien extends JDialog {
 		LS_NhanVien.rdoquanly.setSelected(nhanVien.isVaitro());
 		LS_NhanVien.rdonhanvien.setSelected(!nhanVien.isVaitro());
 		LS_NhanVien.lblimage.setIcon(XImage.read(nhanVien.getHinh()));
-		LS_NhanVien.lblimage.setToolTipText(nhanVien.getHinh());//sai ở đây á 
-		
-		
-		
+		LS_NhanVien.lblimage.setToolTipText(nhanVien.getHinh());
+	}
+	
+	
+	public void settable() {
+		size = service.selectAll().size()/3;
+		rows = (int) Math.ceil(size);
+		lblTo_1.setText(rows+"");
 	}
 }

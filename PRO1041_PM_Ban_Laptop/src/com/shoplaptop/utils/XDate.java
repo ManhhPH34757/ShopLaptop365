@@ -19,9 +19,10 @@ public class XDate {
 		}
 		try {
 			
-			TimeZone timeZone = TimeZone.getTimeZone("Asia/Ho_Chi_Minh");
+//			TimeZone timeZone = TimeZone.getTimeZone("Asia/Ho_Chi_Minh");
+//			long mili = System.currentTimeMillis();
+//			Calendar calendar = Calendar.getInstance();
 			formater.applyPattern(pattern);
-			
 			return formater.parse(date);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -33,9 +34,10 @@ public class XDate {
 			if (date == null) {
 				return "";
 			}
-			TimeZone timeZone = TimeZone.getTimeZone("Asia/Ho_Chi_Minh");
+//			long mili = System.currentTimeMillis();
+//			Calendar calendar = Calendar.getInstance();
+//			TimeZone timeZone = TimeZone.getTimeZone("Asia/Ho_Chi_Minh");
 			formater.applyPattern(pattern);
-			
 			return formater.format(date);
 		} catch (Exception e) {
 			throw new RuntimeException(e);

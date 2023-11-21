@@ -15,7 +15,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
+import com.shoplaptop.dao.LS_HoaDonDao;
+import com.shoplaptop.dao.LS_PhieuDoiDao;
+import com.shoplaptop.dao.NhanVienService;
+import com.shoplaptop.dao.TaiKhoanDAO;
 import com.shoplaptop.entity.NhanVien;
+import com.shoplaptop.entity.TaiKhoan;
+import com.shoplaptop.utils.MsgBox;
 import com.shoplaptop.utils.XDate;
 import com.shoplaptop.utils.XImage;
 
@@ -41,6 +47,12 @@ public class LS_NhanVien extends JDialog {
 	public static ButtonGroup buttonGroup;
 	public static ButtonGroup buttonGroup2;
 	private QLNhanVien qlNhanVien;
+	private TaiKhoanDAO dao ;
+	private NhanVienService service = new NhanVienService();
+	private  int index = 1;
+	//private LS_NhanVien ls_NhanVien = new LS_NhanVien();
+	private LS_HoaDonDao ls_HoaDonDao = new LS_HoaDonDao();
+	private LS_PhieuDoiDao ls_PhieuDoiDao = new LS_PhieuDoiDao();
 
 	/**
 	 * Launch the application.
@@ -175,8 +187,10 @@ public class LS_NhanVien extends JDialog {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				qlNhanVien.Update(getForm());
-//				qlNhanVien.filltable();
+				service.update(getForm());
+				MsgBox.alert(getContentPane(), service.updateTK(getForm()));
+//				qlNhanVien.filltable(service.selectAll());
+				qlNhanVien.filltable(service.sellectAllNhanVien((index - 1)*3+1));
 				dispose();
 			}
 		});
@@ -187,7 +201,11 @@ public class LS_NhanVien extends JDialog {
 		btnXa.setIcon(new ImageIcon(LS_NhanVien.class.getResource("/com/shoplaptop/icon/Delete.png")));
 		btnXa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ls_HoaDonDao.delete(txtmanhanvien.getText());
+				ls_PhieuDoiDao.delete(txtmanhanvien.getText());
 				qlNhanVien.delete(getForm());
+//				qlNhanVien.settable();
+				qlNhanVien.filltable(service.sellectAllNhanVien((index - 1)*3+1));
 				dispose();
 			}
 		});
@@ -238,7 +256,7 @@ public class LS_NhanVien extends JDialog {
 			}
 			
 		});
-		btnBoCoBn_1.setBounds(414, 512, 115, 33);
+		btnBoCoBn_1.setBounds(402, 512, 115, 33);
 		getContentPane().add(btnBoCoBn_1);
 
 	}
@@ -253,9 +271,11 @@ public class LS_NhanVien extends JDialog {
 		nhanVien.setGioiTinh(rdonam.isSelected());
 		nhanVien.setSoDienThoai(txtsodeinthoai.getText());
 		nhanVien.setVaitro(rdoquanly.isSelected());
+		
 		return nhanVien;
 		
 	}
+	
 	
 	public void chooseImage() {
 		try {

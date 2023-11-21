@@ -19,7 +19,7 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 	ResultSet rs = null;
 	
 	String SellectALl = "SELECT * FROM dbo.LS_PhieuDoi";
-	
+	String deletesql = "DELETE FROM dbo.LS_PhieuDoi WHERE MaNV = ?";
 	
 	@Override
 	public String insert(BaoCao_LS_PhieuDoi entity) {
@@ -35,8 +35,13 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 
 	@Override
 	public String delete(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			XJdbc.update(deletesql, id);
+			return "xóa thành công";
+		} catch (Exception e) {
+			return "";
+		}
+		
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package com.shoplaptop.dao;
 
+import java.awt.Component;
+import java.awt.Frame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,10 +9,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.management.RuntimeErrorException;
+import javax.swing.JPanel;
 
 import com.shoplaptop.entity.NhanVien;
+import com.shoplaptop.entity.TaiKhoan;
+import com.shoplaptop.ui.QLNhanVien;
 import com.shoplaptop.utils.XDate;
 import com.shoplaptop.utils.XJdbc;
 
@@ -22,15 +28,25 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 	ResultSet rs = null;
 	
 	
-	String Insert_SQL = "INSERT INTO NhanVien (MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi) VALUES (?,?,?,?,?,?,?,?) ";
+ 	String Insert_SQL = "INSERT INTO NhanVien (MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi) VALUES (?,?,?,?,?,?,?,?) ";
 					
 	String Delete_SQL = "DELETE FROM dbo.NhanVien WHERE MaNV = ?";
 			
 	String Update_SQL = "UPDATE dbo.NhanVien SET HoTen =? , SoDienThoai =? , NgaySinh =? , GioiTinh =? , Email =? , Hinh =? , DiaChi =? WHERE MaNV =? ";
+//			+"update TaiKhoan set VaiTro = ? where MaNV =?";
 			
 	String SelectById_SQL = "SELECT NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV Where NhanVien.MaNV = ?";
 		
 	String selectAll = "SELECT NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV";
+	
+	String Update_sql = "UPDATE dbo.TaiKhoan SET VaiTro =? WHERE MaNV =?";
+	
+	String query = "\r\n"
+			+ "SELECT * FROM\r\n"
+			+ "    (SELECT ROW_NUMBER() OVER (ORDER BY  NhanVien.MaNV) AS rownum,   NhanVien.MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi,VaiTro FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV)\r\n"
+			+ "    AS temp\r\n"
+			+ "    WHERE rownum BETWEEN ? AND ?";
+	
 	
 	@Override	
 	public String insert(NhanVien entity) {
@@ -51,6 +67,17 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 		} catch (Exception e) {
 			System.out.println(e);
 			return "Update k thành công";
+		}
+		
+	}
+	
+	public String updateTK(NhanVien nhanVien) {
+		try {
+			XJdbc.update(Update_sql, nhanVien.isVaitro(),nhanVien.getMaNV());
+			return "Update thành công";
+		} catch (Exception e) {
+			return "Update k thành công";
+			// TODO: handle exception
 		}
 		
 	}
@@ -99,7 +126,7 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 				nhanVien.setEmail(rs.getString("Email"));
 				nhanVien.setHinh(rs.getString("Hinh"));
 				nhanVien.setDiaChi(rs.getString("DiaChi"));
-				nhanVien.setNgaySinh(XDate.toDate(rs.getString("NgaySinh"), "YYYY-MM-dd"));
+				nhanVien.setNgaySinh(XDate.toDate(rs.getString("NgaySinh"), "yyyy-MM-dd"));
 //				nhanVien.setTendangnhap(rs.getString("TenDangNhap"));
 //				nhanVien.setMatkhau(rs.getString("MatKhau"));
 				nhanVien.setVaitro(rs.getBoolean("VaiTro"));
@@ -114,6 +141,10 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 		}
 	
 	}
-		
-		
+	
+	public List<NhanVien> sellectAllNhanVien(int count) {
+		return selectBySQL(query, count,count+2);
+	}
+	
+	
 }
