@@ -19,10 +19,17 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
+<<<<<<< HEAD
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
+=======
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -40,7 +47,11 @@ public class ShopLaptop365 extends JFrame {
 					ShopLaptop365 frame = new ShopLaptop365();
 					frame.setVisible(true);
 				} catch (Exception e) {
+<<<<<<< HEAD
                                     e.printStackTrace();
+=======
+					e.printStackTrace();
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 				}
 			}
 		});
@@ -54,7 +65,11 @@ public class ShopLaptop365 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1070, 735);
 		setLocationRelativeTo(null);
+<<<<<<< HEAD
 		setIconImage(new XImage().getAppIcon());
+=======
+		setIconImage(XImage.getAppIcon());
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -118,6 +133,25 @@ public class ShopLaptop365 extends JFrame {
 		mnQuanLy.add(mntmPhieuDoiTra);
 		
 		JMenuItem mntmNhanVien = new JMenuItem("Nhân viên");
+<<<<<<< HEAD
+=======
+//		mntmNhanVien.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				new QLNhanVien().setVisible(true);
+//			}
+//		});
+//		mntmNhanVien.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				new QLNhanVien().setVisible(true);
+//			}
+//		});
+//		mntmNhanVien.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+////				new QLNhanVien().setVisible(true);
+//			}
+//		});
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		mntmNhanVien.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/User.png")));
 		mntmNhanVien.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		mnQuanLy.add(mntmNhanVien);
@@ -186,6 +220,14 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btnHan);
 		
 		JButton btnSnPhm = new JButton("Laptop");
+<<<<<<< HEAD
+=======
+		btnSnPhm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new LaptopManager().setVisible(true);
+			}
+		});
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		btnSnPhm.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/laptop.png")));
 		btnSnPhm.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnSnPhm.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -193,12 +235,18 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btnSnPhm);
 		
 		JButton btnPhiuGimGi = new JButton("Phiếu giảm giá");
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		btnPhiuGimGi.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/Statistics.png")));
 		btnPhiuGimGi.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnPhiuGimGi.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPhiuGimGi.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+<<<<<<< HEAD
               
+=======
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		toolBar.add(btnPhiuGimGi);
 		
 		JButton btntGimGi = new JButton("Đợt giảm giá");
@@ -216,6 +264,14 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btnNewButton_8);
 		
 		JButton btnNewButton_9 = new JButton("Nhân viên");
+<<<<<<< HEAD
+=======
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new QLNhanVien().setVisible(true);
+			}
+		});
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		btnNewButton_9.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/User.png")));
 		btnNewButton_9.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnNewButton_9.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -228,6 +284,9 @@ public class ShopLaptop365 extends JFrame {
 			mntmNhanVien.setEnabled(false);
 		}
 		setResizable(false);
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 46e398cade36f024900666740023c2d75d07d685
 	}
 }

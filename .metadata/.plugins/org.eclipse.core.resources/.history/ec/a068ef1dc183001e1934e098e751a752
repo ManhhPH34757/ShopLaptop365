@@ -1,0 +1,59 @@
+package com.shoplaptop.dao;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.shoplaptop.entity.DongLaptop;
+import com.shoplaptop.entity.Hang;
+import com.shoplaptop.utils.XJdbc;
+
+public class DongLaptopDAO implements ShopLaptop365DAO<DongLaptop, String> {
+
+	@Override
+	public String insert(DongLaptop entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(DongLaptop entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DongLaptop selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DongLaptop> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DongLaptop> selectBySQL(String sql, Object... args) {
+		List<DongLaptop> list = new ArrayList<DongLaptop>();
+		try {
+			ResultSet rs = XJdbc.query(sql, args);
+			while (rs.next()) {
+				
+			}
+			rs.getStatement().getConnection().close();
+			return list;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+
+}

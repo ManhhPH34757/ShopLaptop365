@@ -1,0 +1,93 @@
+package com.shoplaptop.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.shoplaptop.entity.NhanVien;
+import com.shoplaptop.utils.XJdbc;
+
+public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
+	Connection connection = new XJdbc().Connect();
+	Statement st = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	
+	ArrayList<NhanVien> list = new ArrayList<NhanVien>();
+	
+	String Insert_SQL = "INSERT INTO NhanVien (MaNV,HoTen,SoDienThoai,NgaySinh,GioiTinh,Email,Hinh,DiaChi) VALUES (?,?,?,?,?,?,?,?) "
+					+ "INSERT INTO dbo.TaiKhoan( TenDangNhap, MatKhau,, VaiTro) VALUES(?,?,?)";
+	
+	
+	
+	@Override	
+	public String insert(NhanVien entity) {
+		try {
+			XJdbc.update(Insert_SQL, entity.getMaNV(),entity.getHoTen(),entity.getSoDienThoai(),entity.getNgaySinh(),entity.isGioiTinh(),entity.getEmail(),entity.getHinh(),entity.getDiaChi(),
+					entity.getTendangnhap(),entity.getMatkhau(),entity.isVaitro());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
+	@Override
+	public String update(NhanVien entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NhanVien selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<NhanVien> selectAll() {
+		try {
+			String selectall = "SELECT * FROM dbo.NhanVien JOIN dbo.TaiKhoan ON TaiKhoan.MaNV = NhanVien.MaNV";
+			st = connection.createStatement();
+			rs = st.executeQuery(selectall);
+			while (rs.next()) {
+				String manv = rs.getString("MaNv");
+				String hoten = rs.getString("HoTen");
+				String Sodienthoai = rs.getString("SoDienThoai");
+				Date ngaysinh = rs.getDate("NgaySinh");
+				boolean Gioitinh = rs.getBoolean("GioiTinh");
+				String email = rs.getString("Email");
+				String Hinh = rs.getString("Hinh");
+				String Diachi = rs.getString("DiaChi");
+				String tendangnhap = rs.getString("TenDangNhap");
+				String matkhau = rs.getString("MatKhau");
+				boolean VaiTro = rs.getBoolean("VaiTro");
+				
+				
+				NhanVien nhanVien = new NhanVien(manv, hoten, Sodienthoai, ngaysinh, Gioitinh, email, Hinh, Diachi, tendangnhap, matkhau, VaiTro);
+				list.add(nhanVien);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<NhanVien> selectBySQL(String sql, Object... args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+		
+		
+}

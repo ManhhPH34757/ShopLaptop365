@@ -1,0 +1,40 @@
+package com.shoplaptop.ui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JScrollPane;
+
+@SuppressWarnings("serial")
+public class PhanLoaiManager extends JDialog {
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PhanLoaiManager dialog = new PhanLoaiManager();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public PhanLoaiManager() {
+		setBounds(100, 100, 757, 505);
+		getContentPane().setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 251, 723, 207);
+		getContentPane().add(scrollPane);
+
+	}
+}

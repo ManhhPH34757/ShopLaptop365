@@ -1,0 +1,192 @@
+package com.shoplaptop.ui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JSeparator;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class QLNhanVien extends JDialog {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					QLNhanVien dialog = new QLNhanVien();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public QLNhanVien() {
+		setBounds(100, 100, 1050, 526);
+		setLocationRelativeTo(null);
+		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Quản lý nhân viên ");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(10, 20, 219, 34);
+		getContentPane().add(lblNewLabel);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 64, 1016, 2);
+		getContentPane().add(separator);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel.setBounds(10, 76, 143, 169);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(0, 0, 143, 169);
+		panel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Mã nhân viên ");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(163, 88, 90, 13);
+		getContentPane().add(lblNewLabel_2);
+		
+		textField = new JTextField();
+		textField.setBounds(274, 87, 154, 19);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Tên nhân viên ");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1.setBounds(163, 148, 101, 13);
+		getContentPane().add(lblNewLabel_2_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(274, 147, 154, 19);
+		getContentPane().add(textField_1);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("Địa Chỉ ");
+		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_1.setBounds(163, 205, 90, 13);
+		getContentPane().add(lblNewLabel_2_1_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(274, 204, 154, 19);
+		getContentPane().add(textField_2);
+		
+		JLabel lblNewLabel_2_1_2 = new JLabel("Email");
+		lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_2.setBounds(459, 89, 90, 13);
+		getContentPane().add(lblNewLabel_2_1_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(553, 88, 154, 19);
+		getContentPane().add(textField_3);
+		
+		JLabel lblNewLabel_2_1_2_1 = new JLabel("Ngày sinh");
+		lblNewLabel_2_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_2_1.setBounds(459, 149, 90, 17);
+		getContentPane().add(lblNewLabel_2_1_2_1);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(553, 148, 154, 19);
+		getContentPane().add(textField_4);
+		
+		JLabel lblNewLabel_2_1_2_1_1 = new JLabel("Giới tính ");
+		lblNewLabel_2_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_2_1_1.setBounds(459, 207, 90, 13);
+		getContentPane().add(lblNewLabel_2_1_2_1_1);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Nam ");
+		rdbtnNewRadioButton.setBounds(553, 203, 72, 21);
+		getContentPane().add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnN = new JRadioButton("Nữ ");
+		rdbtnN.setBounds(649, 203, 72, 21);
+		getContentPane().add(rdbtnN);
+		
+		JLabel lblNewLabel_2_1_2_2 = new JLabel("Tên đăng nhập ");
+		lblNewLabel_2_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_2_2.setBounds(746, 89, 101, 19);
+		getContentPane().add(lblNewLabel_2_1_2_2);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(856, 87, 154, 19);
+		getContentPane().add(textField_5);
+		
+		JLabel lblNewLabel_2_1_2_3 = new JLabel("Mật khẩu ");
+		lblNewLabel_2_1_2_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_2_3.setBounds(746, 148, 90, 18);
+		getContentPane().add(lblNewLabel_2_1_2_3);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(856, 147, 154, 19);
+		getContentPane().add(textField_6);
+		
+		JLabel lblNewLabel_2_1_2_4 = new JLabel("Số điện thoại ");
+		lblNewLabel_2_1_2_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2_1_2_4.setBounds(746, 206, 90, 13);
+		getContentPane().add(lblNewLabel_2_1_2_4);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(856, 204, 154, 19);
+		getContentPane().add(textField_7);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 255, 1000, 209);
+		getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table);
+
+	}
+}

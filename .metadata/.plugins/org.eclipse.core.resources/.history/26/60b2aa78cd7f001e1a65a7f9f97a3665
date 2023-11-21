@@ -1,0 +1,30 @@
+package com.shoplaptop.entity;
+
+public class Hinhthucthanhtoan {
+	String hinhthuc;
+
+	public Hinhthucthanhtoan() {
+		super();
+	}
+
+	public Hinhthucthanhtoan(String hinhthuc) {
+		super();
+		this.hinhthuc = hinhthuc;
+	}
+
+	public String getHinhthuc() {
+		return hinhthuc;
+	}
+
+	public void setHinhthuc(String hinhthuc) {
+		this.hinhthuc = hinhthuc;
+	}
+
+	@Override
+	public String toString() {
+		return "Hinhthucthanhtoan [hinhthuc=" + hinhthuc + "]";
+	}
+	
+	
+	
+}
