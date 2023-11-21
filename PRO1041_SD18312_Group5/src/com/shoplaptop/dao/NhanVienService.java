@@ -73,7 +73,7 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 	
 	public String updateTK(NhanVien nhanVien) {
 		try {
-			XJdbc.update(Update_sql, nhanVien.isVaitro(),nhanVien.getMaNV());
+			XJdbc.update(Update_sql, nhanVien.isVaiTro(),nhanVien.getMaNV());
 			return "Update thành công";
 		} catch (Exception e) {
 			return "Update k thành công";
@@ -127,9 +127,7 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 				nhanVien.setHinh(rs.getString("Hinh"));
 				nhanVien.setDiaChi(rs.getString("DiaChi"));
 				nhanVien.setNgaySinh(XDate.toDate(rs.getString("NgaySinh"), "yyyy-MM-dd"));
-//				nhanVien.setTendangnhap(rs.getString("TenDangNhap"));
-//				nhanVien.setMatkhau(rs.getString("MatKhau"));
-				nhanVien.setVaitro(rs.getBoolean("VaiTro"));
+				nhanVien.setVaiTro(rs.getBoolean("VaiTro"));
 				list.add(nhanVien);
 				
 			}

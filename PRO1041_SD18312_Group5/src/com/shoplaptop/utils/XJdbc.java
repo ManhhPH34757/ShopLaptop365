@@ -12,11 +12,7 @@ public class XJdbc {
 	private final String DBName = "PM_Ban_Laptop";
 	private final String PortNumber = "1433";
 	private final String User = "sa";
-<<<<<<< HEAD
-	private final String Pass = "123456";
-=======
 	private final String Pass = "nguyenmanh2707";
->>>>>>> 46e398cade36f024900666740023c2d75d07d685
 	
 	String url = "jdbc:sqlserver://"+ServerName+":"+PortNumber+";databaseName="+DBName+";user="+User+";password="+Pass+";encrypt=false";
 	
@@ -25,10 +21,6 @@ public class XJdbc {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			connection = DriverManager.getConnection(url);
-<<<<<<< HEAD
-=======
-			
->>>>>>> 46e398cade36f024900666740023c2d75d07d685
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -79,9 +71,5 @@ public class XJdbc {
 			throw new RuntimeException(e);
 		}
 	}
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> 46e398cade36f024900666740023c2d75d07d685
+
 }

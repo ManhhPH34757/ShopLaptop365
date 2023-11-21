@@ -1,9 +1,5 @@
 package com.shoplaptop.entity;
 
-<<<<<<< HEAD
-public class Main {
-
-=======
 public class Laptop {
 	private int id;
 	private String maLaptop;
@@ -149,5 +145,4 @@ public class Laptop {
 
 	
 	
->>>>>>> 46e398cade36f024900666740023c2d75d07d685
 }
