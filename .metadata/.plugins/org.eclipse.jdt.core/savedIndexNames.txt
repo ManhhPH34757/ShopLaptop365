@@ -1,2 +1,7 @@
 INDEX VERSION 1.131+D:\PRO1041\PRO1041_JavaSwing\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
+<<<<<<< HEAD
+=======
+2855229102.index
+327447642.index
+>>>>>>> c5286f08c7befc186625ef63c3fed68699bfc654
