@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-17"/>
-	<item key="org.eclipse.jdt.ui.lastextjar" value="D:\Windows\JDBC\sqljdbc_12.2\enu"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="E:\JDBC"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -67,9 +67,12 @@
 		<item key="LimitValue" value="10"/>
 		<item key="SkipNull" value="false"/>
 		<item key="ToStringTemplateSelected" value="0"/>
+<<<<<<< HEAD
 		<item key="InstanceOf" value="false"/>
 		<item key="Blocks" value="false"/>
 		<item key="Objects.equals &amp; Objects.hash" value="true"/>
+=======
+>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item key="SortOrdering" value="false"/>
@@ -83,12 +86,17 @@
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="DialogBounds_GenerateToStringDialog">
+<<<<<<< HEAD
 		<item key="DIALOG_X_ORIGIN" value="149"/>
+=======
+		<item key="DIALOG_X_ORIGIN" value="630"/>
+>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 		<item key="DIALOG_Y_ORIGIN" value="9"/>
 		<item key="DIALOG_WIDTH" value="678"/>
 		<item key="DIALOG_HEIGHT" value="877"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
+<<<<<<< HEAD
 	<section name="DialogBounds_GenerateHashCodeEqualsDialog">
 		<item key="DIALOG_X_ORIGIN" value="1117"/>
 		<item key="DIALOG_Y_ORIGIN" value="66"/>
@@ -96,4 +104,6 @@
 		<item key="DIALOG_HEIGHT" value="763"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
+=======
+>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 </section>

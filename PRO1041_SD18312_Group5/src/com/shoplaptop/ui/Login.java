@@ -158,7 +158,11 @@ public class Login extends JDialog {
 		txtMatKhau.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtMatKhau.setBounds(20, 197, 334, 34);
 		contentPanel.add(txtMatKhau);
+<<<<<<< HEAD
 		setIconImage(XImage.getAppIcon());
+=======
+		setIconImage(new XImage().getAppIcon());
+>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBounds(281, 274, 352, 79);

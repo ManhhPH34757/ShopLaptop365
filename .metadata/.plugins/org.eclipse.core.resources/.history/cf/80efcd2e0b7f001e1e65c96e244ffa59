@@ -1,0 +1,81 @@
+package com.shoplaptop.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.shoplaptop.entity.NhanVien;
+import com.shoplaptop.utils.XJdbc;
+
+public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
+	Connection connection = new XJdbc().Connect();
+	Statement st = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	
+	ArrayList<NhanVien> list = new ArrayList<NhanVien>();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public String insert(NhanVien entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(NhanVien entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NhanVien selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<NhanVien> selectAll() {
+		try {
+			String selectall = "select * from Nhanvien";
+			st = connection.createStatement();
+			rs = st.executeQuery(selectall);
+			while (rs.next()) {
+				String manv = rs.getString("MaNv");
+				String hoten = rs.getString("HoTen");
+				String Sodienthoai = rs.getString("SoDienThoai");
+				Date ngaysinh = rs.getDate("NgaySinh");
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+	}
+
+	@Override
+	public List<NhanVien> selectBySQL(String sql, Object... args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+		
+		
+}
