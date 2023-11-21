@@ -1,5 +1,8 @@
+=\=\=\=\=\=\=
 //org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 //org.eclipse.ui.commands/state/org.eclipse.wst.xml.views.XPathView.processor.xpathprocessor/org.eclipse.ui.commands.radioState=xpath10
+<<<<<<<=HEAD
+>>>>>>>=90106a234a4957305850a157dfcb720aa02988c1
 ACTIVE_HYPERLINK_COLOR=255,200,0
 ATMARK_RULE=89,179,179
 ATTRIBUTE_DELIM=89,179,179
@@ -53,7 +56,6 @@ dtdSymbol=255,191,191
 dtdTag=96,96,255
 dtdTagName=96,96,255
 eclipse.preferences.version=1
-<<<<<<< HEAD
 entityReference=212,0,255
 org.eclipse.compare.contentmergeviewer.TextMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.debug.ui.DetailPaneFont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
@@ -91,6 +93,7 @@ org.eclipse.emf.codegen.ui.jet.scriptletForeground=235,237,239
 org.eclipse.jdt.internal.ui.compare.JavaMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.jdt.internal.ui.compare.PropertiesFileMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.jdt.ui.ColoredLabels.inherited=143,143,191
+org.eclipse.jdt.ui.ColoredLabels.match_highlight=73,83,90
 org.eclipse.jdt.ui.ColoredLabels.writeaccess_highlight=255,128,128
 org.eclipse.jdt.ui.Javadoc.backgroundColor=48,54,59
 org.eclipse.jdt.ui.Javadoc.foregroundColor=235,237,239
@@ -163,8 +166,11 @@ org.eclipse.ui.editors.lineNumberRulerColor=120,135,145
 org.eclipse.ui.editors.printMarginColor=62,70,76
 org.eclipse.ui.showkeys.backgroundColor=182,190,195
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=37,41,45
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=204,204,204
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=37,41,45
+org.eclipse.ui.workbench.ACTIVE_TAB_TEXT_COLOR=221,221,221
 org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=53,60,65
+org.eclipse.ui.workbench.INACTIVE_TAB_TEXT_COLOR=187,187,187
 org.eclipse.wst.jsdt.ui.abstractMethodInvocationHighlighting=255,255,255
 org.eclipse.wst.jsdt.ui.annotationElementReferenceHighlighting=255,255,255
 org.eclipse.wst.jsdt.ui.annotationHighlighting=143,155,163
@@ -220,14 +226,3 @@ tagAttributeValue=212,0,255
 tagBorder=0,254,254
 tagName=89,179,179
 terminal.views.view.font.definition=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
-=======
-org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=41,41,41
-org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=43,44,45
-org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=204,204,204
-org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=41,41,41
-org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=43,44,45
-org.eclipse.ui.workbench.ACTIVE_TAB_TEXT_COLOR=221,221,221
-org.eclipse.ui.workbench.INACTIVE_TAB_BG_END=49,53,56
-org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=59,64,66
-org.eclipse.ui.workbench.INACTIVE_TAB_TEXT_COLOR=187,187,187
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1

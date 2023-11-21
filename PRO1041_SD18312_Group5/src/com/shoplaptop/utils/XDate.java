@@ -1,21 +1,11 @@
 package com.shoplaptop.utils;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 public class XDate {
 	
 	static SimpleDateFormat formater = new SimpleDateFormat();
-	
-<<<<<<< HEAD
-<<<<<<<< HEAD:PRO1041_SD18312_Group5/src/com/shoplaptop/utils/XDate.java
-	public Date toDate(String date, String pattern) {
-========
-=======
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
-	
 	
 	public static Date toDate(String date, String pattern) {
 		
@@ -23,10 +13,6 @@ public class XDate {
 		if (date == null || date.isEmpty()) {
 			return null;
 		}
-<<<<<<< HEAD
->>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:PRO1041_PM_Ban_Laptop/src/com/shoplaptop/utils/XDate.java
-=======
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 		try {
 			
 //			TimeZone timeZone = TimeZone.getTimeZone("Asia/Ho_Chi_Minh");

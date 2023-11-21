@@ -1,13 +1,12 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=c5286f08c7befc186625ef63c3fed68699bfc654
 applyBackground=false
 approved.defs.file.last.changed.time=1693315978000
 configurationInstallLocation=/C\:/Users/nguye/eclipse/jee-2022-12/eclipse/
 eclipse.preferences.version=1
 iconcolormode=primary
-<<<<<<< HEAD
-last.download.attempt.time=1700527433221
-=======
 last.download.attempt.time=1700514165486
->>>>>>> c5286f08c7befc186625ef63c3fed68699bfc654
-lastConfiguration=1700527422057
+lastConfiguration=1700528420547
 newinstall=true
 workbench.theme=Dark Gray

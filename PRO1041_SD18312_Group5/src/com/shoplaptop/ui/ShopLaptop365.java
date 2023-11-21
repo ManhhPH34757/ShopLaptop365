@@ -21,16 +21,8 @@ import javax.swing.JSeparator;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-<<<<<<< HEAD
-<<<<<<<< HEAD:PRO1041_SD18312_Group5/src/com/shoplaptop/ui/ShopLaptop365.java
-========
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
->>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:PRO1041_PM_Ban_Laptop/src/com/shoplaptop/ui/ShopLaptop365.java
-=======
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -62,11 +54,7 @@ public class ShopLaptop365 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1070, 735);
 		setLocationRelativeTo(null);
-<<<<<<< HEAD
 		setIconImage(XImage.getAppIcon());
-=======
-		setIconImage(new XImage().getAppIcon());
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -214,14 +202,11 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btnHan);
 		
 		JButton btnSnPhm = new JButton("Laptop");
-<<<<<<< HEAD
 		btnSnPhm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new LaptopManager().setVisible(true);
 			}
 		});
-=======
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 		btnSnPhm.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/laptop.png")));
 		btnSnPhm.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnSnPhm.setHorizontalTextPosition(SwingConstants.CENTER);
