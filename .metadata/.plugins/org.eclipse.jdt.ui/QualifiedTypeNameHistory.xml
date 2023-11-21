@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<<<<<<< HEAD
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
@@ -55,72 +54,10 @@
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="com.shoplaptop.dao.BienTheDAO"/>
     <fullyQualifiedTypeName name="com.shoplaptop.dao.LaptopDAO"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.shoplaptop.entity.NhaCungCap"/>
     <fullyQualifiedTypeName name="com.shoplaptop.ui.PhanLoaiManager"/>
     <fullyQualifiedTypeName name="com.shoplaptop.ui.HangManager"/>
     <fullyQualifiedTypeName name="com.shoplaptop.ui.DongLaptopManager"/>
     <fullyQualifiedTypeName name="com.shoplaptop.ui.CreateLaptop"/>
-=======
-    <fullyQualifiedTypeName name="java.awt.Component"/>
-    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.awt.Image"/>
-    <fullyQualifiedTypeName name="javax.print.DocFlavor.URL"/>
-    <fullyQualifiedTypeName name="java.net.URL"/>
-    <fullyQualifiedTypeName name="java.nio.file.Path"/>
-    <fullyQualifiedTypeName name="java.nio.file.Paths"/>
-    <fullyQualifiedTypeName name="java.nio.file.Files"/>
-    <fullyQualifiedTypeName name="java.nio.file.StandardCopyOption"/>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="java.util.Timer"/>
-    <fullyQualifiedTypeName name="javax.management.timer.Timer"/>
-    <fullyQualifiedTypeName name="javax.swing.Timer"/>
-    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
-    <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.HelloWindows"/>
-    <fullyQualifiedTypeName name="javax.swing.UIManager"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="java.awt.Graphics"/>
-    <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
-    <fullyQualifiedTypeName name="java.awt.RenderingHints"/>
-    <fullyQualifiedTypeName name="javax.swing.JDialog"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.dao.NhanVienDAO"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.dao.TaiKhoanDAO"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.entity.TaiKhoan"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.Login"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.ShopLaptop365"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.SelectFunction"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.Main"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.NhanVienManager"/>
-    <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
-    <fullyQualifiedTypeName name="java.io.StreamCorruptedException"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.security.PublicKey"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.utils.XDate"/>
-    <fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.utils.XImage"/>
-    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
-    <fullyQualifiedTypeName name="javax.swing.ButtonGroup"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.utils.Auth"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.utils.XJdbc"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.entity.NhanVien"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.dao.NhanVienService"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.ui.QLNhanVien"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.utils.MsgBox"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.dao.ShopLaptop365DAO"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.entity.Hinhthucthanhtoan"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="com.shoplaptop.entity.Hinhthucvanchuyen"/>
->>>>>>> 90106a234a4957305850a157dfcb720aa02988c1
 </qualifiedTypeNameHistroy>

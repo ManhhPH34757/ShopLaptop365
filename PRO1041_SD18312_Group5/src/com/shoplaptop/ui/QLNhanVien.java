@@ -453,7 +453,7 @@ public class QLNhanVien extends JDialog {
 		TaiKhoan taiKhoan = new TaiKhoan();
 		taiKhoan.setMaNV(txtmanhanvien.getText());
 		taiKhoan.setTenDangNhap(txttendangnhap.getText());
-		taiKhoan.setMatKhau(txtmatkhau.getText());
+		taiKhoan.setMatKhau(String.valueOf(txtmatkhau.getPassword()));
 		taiKhoan.setVaiTro(rdoquanly.isSelected());
 		return taiKhoan;
 	}
@@ -616,7 +616,7 @@ public class QLNhanVien extends JDialog {
 			JOptionPane.showMessageDialog(contentPanel, "Tên đăng nhập k được để trống");
 			return false;
 		}
-		if (txtmatkhau.getText().trim().isEmpty()) {
+		if (String.valueOf(txtmatkhau.getPassword()).trim().isEmpty()) {
 			JOptionPane.showMessageDialog(contentPanel, "Mật khẩu nhân viên k được để trống");
 			return false;
 		}
