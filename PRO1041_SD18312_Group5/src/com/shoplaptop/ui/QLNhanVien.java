@@ -401,7 +401,7 @@ public class QLNhanVien extends JDialog {
 //					nhanVien.getMatkhau(),
 					nhanVien.getSoDienThoai(),
 					nhanVien.getHinh(),
-					nhanVien.isVaitro() ? "Quản Lý" : "Nhân Viên"
+					nhanVien.isVaiTro() ? "Quản Lý" : "Nhân Viên"
 			};
 			model.addRow(rows);
 			
@@ -425,8 +425,8 @@ public class QLNhanVien extends JDialog {
 			lblimage.setToolTipText(nhanVien.getHinh());
 			lblimage.setIcon(XImage.read(nhanVien.getHinh()));
 		}
-		rdoquanly.setSelected(nhanVien.isVaitro());
-		rdonhanvien.setSelected(!nhanVien.isVaitro());
+		rdoquanly.setSelected(nhanVien.isVaiTro());
+		rdonhanvien.setSelected(!nhanVien.isVaiTro());
 	}
 	public void setForm_1(TaiKhoan taiKhoan) {
 		txttendangnhap.setText(taiKhoan.getTenDangNhap());
@@ -453,7 +453,7 @@ public class QLNhanVien extends JDialog {
 		TaiKhoan taiKhoan = new TaiKhoan();
 		taiKhoan.setMaNV(txtmanhanvien.getText());
 		taiKhoan.setTenDangNhap(txttendangnhap.getText());
-		taiKhoan.setMatKhau(txtmatkhau.getText());
+		taiKhoan.setMatKhau(String.valueOf(txtmatkhau.getPassword()));
 		taiKhoan.setVaiTro(rdoquanly.isSelected());
 		return taiKhoan;
 	}
@@ -641,8 +641,8 @@ public class QLNhanVien extends JDialog {
 		LS_NhanVien.txtsodeinthoai.setText(nhanVien.getSoDienThoai());
 		LS_NhanVien.rdonam.setSelected(nhanVien.isGioiTinh());
 		LS_NhanVien.rdonu.setSelected(!nhanVien.isGioiTinh());
-		LS_NhanVien.rdoquanly.setSelected(nhanVien.isVaitro());
-		LS_NhanVien.rdonhanvien.setSelected(!nhanVien.isVaitro());
+		LS_NhanVien.rdoquanly.setSelected(nhanVien.isVaiTro());
+		LS_NhanVien.rdonhanvien.setSelected(!nhanVien.isVaiTro());
 		LS_NhanVien.lblimage.setIcon(XImage.read(nhanVien.getHinh()));
 		LS_NhanVien.lblimage.setToolTipText(nhanVien.getHinh());
 	}

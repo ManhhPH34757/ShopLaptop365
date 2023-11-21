@@ -270,7 +270,7 @@ public class LS_NhanVien extends JDialog {
 		nhanVien.setNgaySinh(XDate.toDate(txtngaysinh.getText(), "yyyy-MM-dd"));
 		nhanVien.setGioiTinh(rdonam.isSelected());
 		nhanVien.setSoDienThoai(txtsodeinthoai.getText());
-		nhanVien.setVaitro(rdoquanly.isSelected());
+		nhanVien.setVaiTro(rdoquanly.isSelected());
 		
 		return nhanVien;
 		

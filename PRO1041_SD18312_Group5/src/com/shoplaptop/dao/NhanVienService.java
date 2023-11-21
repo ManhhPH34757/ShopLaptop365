@@ -1,22 +1,14 @@
 package com.shoplaptop.dao;
 
-import java.awt.Component;
-import java.awt.Frame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
-import javax.management.RuntimeErrorException;
-import javax.swing.JPanel;
 
 import com.shoplaptop.entity.NhanVien;
-import com.shoplaptop.entity.TaiKhoan;
-import com.shoplaptop.ui.QLNhanVien;
 import com.shoplaptop.utils.XDate;
 import com.shoplaptop.utils.XJdbc;
 
@@ -73,7 +65,7 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 	
 	public String updateTK(NhanVien nhanVien) {
 		try {
-			XJdbc.update(Update_sql, nhanVien.isVaitro(),nhanVien.getMaNV());
+			XJdbc.update(Update_sql, nhanVien.isVaiTro(),nhanVien.getMaNV());
 			return "Update thành công";
 		} catch (Exception e) {
 			return "Update k thành công";
@@ -127,9 +119,7 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 				nhanVien.setHinh(rs.getString("Hinh"));
 				nhanVien.setDiaChi(rs.getString("DiaChi"));
 				nhanVien.setNgaySinh(XDate.toDate(rs.getString("NgaySinh"), "yyyy-MM-dd"));
-//				nhanVien.setTendangnhap(rs.getString("TenDangNhap"));
-//				nhanVien.setMatkhau(rs.getString("MatKhau"));
-				nhanVien.setVaitro(rs.getBoolean("VaiTro"));
+				nhanVien.setVaiTro(rs.getBoolean("VaiTro"));;
 				list.add(nhanVien);
 				
 			}
