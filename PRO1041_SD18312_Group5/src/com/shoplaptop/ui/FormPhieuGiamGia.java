@@ -44,7 +44,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
     public void initTable(){
         tblModel = (DefaultTableModel) tblPhieuGiamGia.getModel();
         String  [] col = new String[]{
-          "Mã Phiếu " , "Tên Phiếu","Hạn Sử Dụng","Số Lượng Phiếu","Giá Giảm","Điều Kiện Giảm"  
+          "ID","Mã Phiếu " , "Tên Phiếu","Hạn Sử Dụng","Số Lượng Phiếu","Giá Giảm","Điều Kiện Giảm"  
         };
         tblModel.setColumnIdentifiers(col);
     }
@@ -54,6 +54,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
     //    list = pggd.getALLDAO();
         for(PhieuGiamGia pgg : list){
             Object [] row = new Object[]{
+                pgg.getID(),
                 pgg.getMaPG(),
                 pgg.getTenPhieu(),
                 pgg.getHan(),
@@ -72,12 +73,12 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
 	}
     
      public void showindex(int chon){
-        txtMaPhieu.setText(tblPhieuGiamGia.getValueAt(chon, 0).toString());
-        txtTenPhieu.setText(tblPhieuGiamGia.getValueAt(chon, 1).toString());
-        txtHan.setText(tblPhieuGiamGia.getValueAt(chon, 2).toString());
-        txtSoLuong.setText(tblPhieuGiamGia.getValueAt(chon, 3).toString());
-        txtGiaGiam.setText(tblPhieuGiamGia.getValueAt(chon, 4).toString());
-        txtDieuKien.setText(tblPhieuGiamGia.getValueAt(chon, 5).toString());
+        txtMaPhieu.setText(tblPhieuGiamGia.getValueAt(chon, 1).toString());
+        txtTenPhieu.setText(tblPhieuGiamGia.getValueAt(chon, 2).toString());
+        txtHan.setText(tblPhieuGiamGia.getValueAt(chon, 3).toString());
+        txtSoLuong.setText(tblPhieuGiamGia.getValueAt(chon, 4).toString());
+        txtGiaGiam.setText(tblPhieuGiamGia.getValueAt(chon, 5).toString());
+        txtDieuKien.setText(tblPhieuGiamGia.getValueAt(chon, 6).toString());
     }
      public PhieuGiamGia getModel(){
         PhieuGiamGia pgg = new PhieuGiamGia();
@@ -96,9 +97,19 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
         int SoLuong = Integer.parseInt(txtSoLuong.getText());
         float GiaGiam = Float.parseFloat(txtGiaGiam.getText());
         float Dieukien = Float.parseFloat(txtDieuKien.getText());
-        PhieuGiamGia pgg = new PhieuGiamGia(MaPG, Ten, Han, SoLuong, GiaGiam, Dieukien);
+        PhieuGiamGia pgg = new PhieuGiamGia(WIDTH, MaPG, Ten, Han, SoLuong, GiaGiam, Dieukien);
         return pgg;
     }
+     public PhieuGiamGia findByMaPG(String MaPG){
+        list = pggd.getALLDAO();
+        for(PhieuGiamGia pgg : list){
+            if(MaPG.equalsIgnoreCase(pgg.getMaPG())){
+                return pgg;
+            }
+        }
+        return null;
+    }
+     
       public boolean check(){
         String MaPG = txtMaPhieu.getText();
         String TenPhieu = txtTenPhieu.getText();
@@ -121,6 +132,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
         return true;
     }
      public void reset(){
+         
         txtMaPhieu.setText(null);
         txtTenPhieu.setText(null);
         txtHan.setText(null);
@@ -149,7 +161,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
         btnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        btnTimKiem = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMaPhieu = new javax.swing.JTextField();
@@ -209,7 +221,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         btnThem.setBackground(new java.awt.Color(204, 255, 204));
@@ -265,10 +277,15 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Tìm Kiếm");
 
-        jButton10.setBackground(new java.awt.Color(204, 255, 204));
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shoplaptop/icon/search2.png"))); // NOI18N
-        jButton10.setText("Tìm Kiếm");
+        btnTimKiem.setBackground(new java.awt.Color(204, 255, 204));
+        btnTimKiem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shoplaptop/icon/search2.png"))); // NOI18N
+        btnTimKiem.setText("Tìm Kiếm");
+        btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimKiemActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -305,43 +322,43 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
                     .addComponent(txtDieuKien)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(0, 209, Short.MAX_VALUE)))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel2))
+                        .addGap(0, 282, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtMaPhieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtTenPhieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtHan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtGiaGiam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtDieuKien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -387,7 +404,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton10)
+                        .addComponent(btnTimKiem)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -416,7 +433,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
                         .addGap(280, 280, 280)
                         .addComponent(btnQuayLai))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(400, 400, 400)
+                        .addGap(450, 450, 450)
                         .addComponent(jLabel9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -433,7 +450,7 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
                             .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel10)
                         .addComponent(cboLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -533,6 +550,27 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
         cboLoc.setSelectedIndex(-1);
     }//GEN-LAST:event_btnQuayLaiActionPerformed
 
+    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
+        // TODO add your handling code here:
+        if(findByMaPG(txtTimKiem.getText())==null){
+            MsgBox.alert(this, "Không tìm thấy phiếu giảm giá");
+        } else {
+            list.add(findByMaPG(txtTimKiem.getText()));
+            tblModel.setRowCount(0);
+            Object [] row = new Object[]{
+                findByMaPG(txtTimKiem.getText()).getID(),
+                findByMaPG(txtTimKiem.getText()).getMaPG(),
+                findByMaPG(txtTimKiem.getText()).getTenPhieu(),
+                findByMaPG(txtTimKiem.getText()).getHan(),
+                findByMaPG(txtTimKiem.getText()).getSoLuong(),
+                findByMaPG(txtTimKiem.getText()).getGiaGiam(),
+                findByMaPG(txtTimKiem.getText()).getDieuKienGiam()
+            };
+            tblModel.addRow(row);
+            MsgBox.alert(this, "Tìm thấy kết quả");
+        }
+    }//GEN-LAST:event_btnTimKiemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -581,9 +619,9 @@ PhieuGiamGiaDAO pggd = new PhieuGiamGiaDAO();
     private javax.swing.JButton btnQuayLai;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cboLoc;
-    private javax.swing.JButton jButton10;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

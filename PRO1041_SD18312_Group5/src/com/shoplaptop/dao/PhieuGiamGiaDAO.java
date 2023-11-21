@@ -28,7 +28,7 @@ public class PhieuGiamGiaDAO {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
-                dspg.add(new PhieuGiamGia(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getFloat(5), rs.getFloat(6)));
+              dspg.add(new PhieuGiamGia(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getDouble(6), rs.getDouble(7)));
             }
             System.out.println(dspg.get(0).toString());
             System.out.println(dspg.get(1).toString());
@@ -89,12 +89,7 @@ public class PhieuGiamGiaDAO {
             System.out.println(e);
         }
     }
-    public void FindPhieu(String MaPG , String TenPhieu){
-        try {
-            String sql = "select * from PhieuGiamGia where TenPhieu like ? or MaPG like ? ";
-        } catch (Exception e) {
-        }
-    }
+    
     public ArrayList<PhieuGiamGia> getALLDAOLOC(){
         String sql="select * from PhieuGiamGia";
         return getALLSQL(sql);
@@ -114,7 +109,7 @@ public class PhieuGiamGiaDAO {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
-                dspg.add(new PhieuGiamGia(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getFloat(5), rs.getFloat(6)));
+                dspg.add(new PhieuGiamGia(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getDouble(6), rs.getDouble(7)));
             }
 //            System.out.println(dspg.get(0).toString());
 //            System.out.println(dspg.get(1).toString());

@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Admin
  */
 public class PhieuGiamGia {
+    private int ID;
     private String MaPG;
     private String TenPhieu;
     private Date Han;
@@ -21,13 +22,22 @@ public class PhieuGiamGia {
     public PhieuGiamGia() {
     }
 
-    public PhieuGiamGia(String MaPG, String TenPhieu, Date Han, int SoLuong, double GiaGiam, double DieuKienGiam) {
+    public PhieuGiamGia(int ID, String MaPG, String TenPhieu, Date Han, int SoLuong, double GiaGiam, double DieuKienGiam) {
+        this.ID = ID;
         this.MaPG = MaPG;
         this.TenPhieu = TenPhieu;
         this.Han = Han;
         this.SoLuong = SoLuong;
         this.GiaGiam = GiaGiam;
         this.DieuKienGiam = DieuKienGiam;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getMaPG() {
@@ -80,9 +90,10 @@ public class PhieuGiamGia {
 
     @Override
     public String toString() {
-        return "PhieuGiamGia{" + "MaPG=" + MaPG + ", TenPhieu=" + TenPhieu + ", Han=" + Han + ", SoLuong=" + SoLuong + ", GiaGiam=" + GiaGiam + ", DieuKienGiam=" + DieuKienGiam + '}';
+        return "PhieuGiamGia{" + "ID=" + ID + ", MaPG=" + MaPG + ", TenPhieu=" + TenPhieu + ", Han=" + Han + ", SoLuong=" + SoLuong + ", GiaGiam=" + GiaGiam + ", DieuKienGiam=" + DieuKienGiam + '}';
     }
 
+    
   
     
 }
