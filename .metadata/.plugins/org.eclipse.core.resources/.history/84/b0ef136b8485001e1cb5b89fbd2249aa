@@ -1,0 +1,188 @@
+package com.shoplaptop.ui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.shoplaptop.dao.PhieuDoiDAO;
+import com.shoplaptop.entity.PhieuDoi;
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class DanhSachPhieuDoi extends JFrame {
+	public DefaultTableModel model ;
+	public DefaultTableModel model2;
+	PhieuDoiDAO phieuDoiDAO = new PhieuDoiDAO();
+	List<PhieuDoi> list = new ArrayList<PhieuDoi>();
+	PhieuDoi phieuDoi;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTable tblDanhSachPhieuDoi;
+	private JTable tblDanhSachPhieuDoiChiTiet;
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DanhSachPhieuDoi frame = new DanhSachPhieuDoi();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public DanhSachPhieuDoi() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 830, 662);
+		setLocationRelativeTo(this);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("DANH SÁCH PHIẾU ĐỔI");
+		lblNewLabel.setForeground(new Color(255, 128, 128));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(23, 10, 285, 26);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Tạo Phiếu Đổi");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new PhieuDoiView().setVisible(true);
+			}
+		});
+		btnNewButton.setForeground(new Color(64, 0, 0));
+		btnNewButton.setBackground(new Color(255, 204, 204));
+		btnNewButton.setIcon(new ImageIcon(DanhSachPhieuDoi.class.getResource("/com/shoplaptop/icon/Add.png")));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBounds(626, 22, 161, 34);
+		contentPane.add(btnNewButton);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 215, 215));
+		panel.setBounds(23, 96, 764, 51);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 10, 643, 29);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnTimKiem = new JButton("Tìm Kiếm");
+		btnTimKiem.setForeground(new Color(64, 0, 0));
+		btnTimKiem.setBackground(new Color(255, 128, 128));
+		btnTimKiem.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnTimKiem.setBounds(663, 10, 85, 29);
+		panel.add(btnTimKiem);
+		
+		JLabel lblNewLabel_1 = new JLabel("Tìm Kiếm Phiếu Đổi");
+		lblNewLabel_1.setBounds(23, 58, 133, 28);
+		contentPane.add(lblNewLabel_1);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		JLabel lblNewLabel_2 = new JLabel("Danh Sách Phiếu Đổi");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_2.setBounds(23, 178, 176, 19);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Danh Sách Chi Tiết Phiếu Đổi");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_2_1.setBounds(23, 400, 218, 19);
+		contentPane.add(lblNewLabel_2_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(23, 217, 764, 158);
+		contentPane.add(scrollPane);
+		
+		model = new DefaultTableModel();
+		String[] cols = {"MaPhieuDoi","MaKH","MaHD","MaNV","NgayTao","LiDo"};
+		model.setColumnIdentifiers(cols);
+		
+		tblDanhSachPhieuDoi = new JTable(model);
+		tblDanhSachPhieuDoi.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int row = tblDanhSachPhieuDoi.getSelectedRow();
+				String maPhieuDoi = (String) tblDanhSachPhieuDoi.getValueAt(row, 0);
+				fillTableCTPhieuDoi(maPhieuDoi);
+			}
+		});
+		tblDanhSachPhieuDoi.setFillsViewportHeight(true);
+		scrollPane.setViewportView(tblDanhSachPhieuDoi);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(23, 444, 764, 158);
+		contentPane.add(scrollPane_1);
+		
+		model2 = new DefaultTableModel();
+		String[] colS = {"Id_PhieuDoi","Serial_Old","Giá cũ","Serial_New","Giá mới"};
+		model2.setColumnIdentifiers(colS);
+		
+		tblDanhSachPhieuDoiChiTiet = new JTable(model2);
+		tblDanhSachPhieuDoiChiTiet.setFillsViewportHeight(true);
+		scrollPane_1.setViewportView(tblDanhSachPhieuDoiChiTiet);
+		
+		fillTablePhieuDoi();
+		
+	}
+	
+	public void fillTablePhieuDoi() {
+		model = (DefaultTableModel) tblDanhSachPhieuDoi.getModel();
+		model.setRowCount(0);
+		List<PhieuDoi> list = phieuDoiDAO.selectAll();
+		for(PhieuDoi phieuDoi : list) {
+			Object[] row = new Object[] {
+					phieuDoi.getMaPhieuDoi(),
+					phieuDoi.getMaKH(),
+					phieuDoi.getMaHD(),
+					phieuDoi.getMaNV(), 
+					phieuDoi.getNgayTao(),
+					phieuDoi.getLiDo()
+			};
+			model.addRow(row);
+		}
+		
+	}
+	public void fillTableCTPhieuDoi(String MaPhieuDoi) {
+//		model2 = (DefaultTableModel) tblDanhSachPhieuDoiChiTiet.getModel();
+//		model2.setRowCount(0);
+//		List<PhieuDoi> list = phieuDoiDAO.selectCTPhieuDoi(MaPhieuDoi);
+//		for(PhieuDoi pDoi : list) {
+//			Object[] rows = new Object[] {
+//					pDoi.getID(),
+//					pDoi.getSerial_Old(),
+//					pDoi.getSerial_New()
+//			};
+//			model2.addRow(rows);
+//		}
+	}
+	
+}

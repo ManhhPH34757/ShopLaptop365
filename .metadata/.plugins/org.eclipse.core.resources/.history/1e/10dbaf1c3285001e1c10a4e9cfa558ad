@@ -1,0 +1,239 @@
+package com.shoplaptop.entity;
+
+import java.util.Date;
+
+public class HoaDon {
+	private String MaHD ;
+	private String MaKH ;
+	private int IDSerial;
+	private String SerialNumber;
+	private int IDHinhThucVanChuyen;
+	private String HinhThucVanChuyen;
+	private int IDHinhThucThanhToan;
+	private String HinhThucThanhToan;
+	private String PhieuGiamGia ;
+	private String DotGiamGia;
+	private String MaNV ;
+	private Date NgayTao;
+	private double TongTien;
+	private String tenLap;
+	private double GiaBan ; 
+	
+	
+	public HoaDon() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public HoaDon(String maHD, String maKH, int iDSerial, String serialNumber, int iDHinhThucVanChuyen,
+			String hinhThucVanChuyen, int iDHinhThucThanhToan, String hinhThucThanhToan, String phieuGiamGia,
+			String dotGiamGia, String maNV, Date ngayTao, double tongTien, String tenLap, double giaBan) {
+		MaHD = maHD;
+		MaKH = maKH;
+		IDSerial = iDSerial;
+		SerialNumber = serialNumber;
+		IDHinhThucVanChuyen = iDHinhThucVanChuyen;
+		HinhThucVanChuyen = hinhThucVanChuyen;
+		IDHinhThucThanhToan = iDHinhThucThanhToan;
+		HinhThucThanhToan = hinhThucThanhToan;
+		PhieuGiamGia = phieuGiamGia;
+		DotGiamGia = dotGiamGia;
+		MaNV = maNV;
+		NgayTao = ngayTao;
+		TongTien = tongTien;
+		this.tenLap = tenLap;
+		GiaBan = giaBan;
+	}
+
+	
+	
+
+	public HoaDon(String maHD, String maKH, String maNV) {
+		MaHD = maHD;
+		MaKH = maKH;
+		MaNV = maNV;
+	}
+
+
+	public HoaDon(String maHD, String maKH, String serialNumber, String hinhThucVanChuyen, String hinhThucThanhToan,
+			String phieuGiamGia, String dotGiamGia, String maNV, Date ngayTao, double tongTien, String tenLap,
+			double giaBan) {
+		MaHD = maHD;
+		MaKH = maKH;
+		SerialNumber = serialNumber;
+		HinhThucVanChuyen = hinhThucVanChuyen;
+		HinhThucThanhToan = hinhThucThanhToan;
+		PhieuGiamGia = phieuGiamGia;
+		DotGiamGia = dotGiamGia;
+		MaNV = maNV;
+		NgayTao = ngayTao;
+		TongTien = tongTien;
+		this.tenLap = tenLap;
+		GiaBan = giaBan;
+	}
+
+
+	public HoaDon(String serialNumber, String tenLap, double giaBan) {
+		SerialNumber = serialNumber;
+		this.tenLap = tenLap;
+		GiaBan = giaBan;
+	}
+
+
+	public String getMaHD() {
+		return MaHD;
+	}
+
+
+	public void setMaHD(String maHD) {
+		MaHD = maHD;
+	}
+
+
+	public String getMaKH() {
+		return MaKH;
+	}
+
+
+	public void setMaKH(String maKH) {
+		MaKH = maKH;
+	}
+
+
+	public int getIDSerial() {
+		return IDSerial;
+	}
+
+
+	public void setIDSerial(int iDSerial) {
+		IDSerial = iDSerial;
+	}
+
+
+	public String getSerialNumber() {
+		return SerialNumber;
+	}
+
+
+	public void setSerialNumber(String serialNumber) {
+		SerialNumber = serialNumber;
+	}
+
+
+	public int getIDHinhThucVanChuyen() {
+		return IDHinhThucVanChuyen;
+	}
+
+
+	public void setIDHinhThucVanChuyen(int iDHinhThucVanChuyen) {
+		IDHinhThucVanChuyen = iDHinhThucVanChuyen;
+	}
+
+
+	public String getHinhThucVanChuyen() {
+		return HinhThucVanChuyen;
+	}
+
+
+	public void setHinhThucVanChuyen(String hinhThucVanChuyen) {
+		HinhThucVanChuyen = hinhThucVanChuyen;
+	}
+
+
+	public int getIDHinhThucThanhToan() {
+		return IDHinhThucThanhToan;
+	}
+
+
+	public void setIDHinhThucThanhToan(int iDHinhThucThanhToan) {
+		IDHinhThucThanhToan = iDHinhThucThanhToan;
+	}
+
+
+	public String getHinhThucThanhToan() {
+		return HinhThucThanhToan;
+	}
+
+
+	public void setHinhThucThanhToan(String hinhThucThanhToan) {
+		HinhThucThanhToan = hinhThucThanhToan;
+	}
+
+
+	public String getPhieuGiamGia() {
+		return PhieuGiamGia;
+	}
+
+
+	public void setPhieuGiamGia(String phieuGiamGia) {
+		PhieuGiamGia = phieuGiamGia;
+	}
+
+
+	public String getDotGiamGia() {
+		return DotGiamGia;
+	}
+
+
+	public void setDotGiamGia(String dotGiamGia) {
+		DotGiamGia = dotGiamGia;
+	}
+
+
+	public String getMaNV() {
+		return MaNV;
+	}
+
+
+	public void setMaNV(String maNV) {
+		MaNV = maNV;
+	}
+
+
+	public Date getNgayTao() {
+		return NgayTao;
+	}
+
+
+	public void setNgayTao(Date ngayTao) {
+		NgayTao = ngayTao;
+	}
+
+
+	public double getTongTien() {
+		return TongTien;
+	}
+
+
+	public void setTongTien(double tongTien) {
+		TongTien = tongTien;
+	}
+
+
+	public String getTenLap() {
+		return tenLap;
+	}
+
+
+	public void setTenLap(String tenLap) {
+		this.tenLap = tenLap;
+	}
+
+
+	public double getGiaBan() {
+		return GiaBan;
+	}
+
+
+	public void setGiaBan(double giaBan) {
+		GiaBan = giaBan;
+	}
+
+
+	@Override
+	public String toString() {
+		return MaHD;
+	}
+	
+	
+}

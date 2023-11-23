@@ -30,7 +30,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         initComponents();
         setLocationRelativeTo(this);
         initTable();
-        list = pggdao.getALLDAO();
+        list = pggdao.selectAll();
         fillTable();
         setIconImage(new XImage().getAppIcon());
     }
@@ -45,9 +45,9 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
     }
     public void fillTable(){
        tblModel.setRowCount(0);
-       list = pggdao.getALLDAO();
+       list = pggdao.selectAll();
        for(PhieuGiamGia pgg : list){
-           Object [] row = new Object[]{pgg.getMaPG(),pgg.getTenPhieu(),pgg.getHan(),pgg.getSoLuong(),pgg.getGiaGiam(),pgg.getDieuKienGiam()};
+           Object [] row = new Object[]{pgg.getMaPG(),pgg.getTenPhieu(),pgg.getHan(),pgg.getSoLuong(),pgg.getGiaGiam(),pgg.getDieuKienHoaDon()};
            tblModel.addRow(row);
        }
     }
@@ -66,7 +66,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         pgg.setHan(XDate.toDate(txtHan.getText(), "yyyy-MM-dd"));
         pgg.setSoLuong(Integer.parseInt(txtSoLuong.getText()));
         pgg.setGiaGiam(Float.parseFloat(txtGiaGiam.getText()));
-        pgg.setDieuKienGiam(Float.parseFloat(txtDieuKien.getText()));
+        pgg.setDieuKienHoaDon(Float.parseFloat(txtDieuKien.getText()));
         return pgg;
     }
     public PhieuGiamGia readForm(){
@@ -80,7 +80,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         return pgg;
     }
     public PhieuGiamGia findByMaPG(String MaPG){
-        list = pggdao.getALLDAO();
+        list = pggdao.selectAll();
         for(PhieuGiamGia pgg : list){
             if(MaPG.equalsIgnoreCase(pgg.getMaPG())){
                 return pgg;
@@ -403,7 +403,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         // TODO add your handling code here:
         if(JOptionPane.showConfirmDialog(this, "Xác nhận thêm ?")==JOptionPane.YES_NO_OPTION){
             if(check()) {
-                pggdao.ADDAO(getModel());
+                pggdao.insert(getModel());
                 fillTable();
                 MsgBox.alert(this, "Thêm thành công");
             }
@@ -423,7 +423,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
                 findByMaPG(txtTimKiem.getText()).getHan(),
                 findByMaPG(txtTimKiem.getText()).getSoLuong(),
                 findByMaPG(txtTimKiem.getText()).getGiaGiam(),
-                findByMaPG(txtTimKiem.getText()).getDieuKienGiam()
+                findByMaPG(txtTimKiem.getText()).getDieuKienHoaDon()
             };
             tblModel.addRow(row);
         }
@@ -433,7 +433,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         // TODO add your handling code here:
         try {
            if(MsgBox.confirm(this, "Xác nhận xóa ?")){
-               pggdao.XOADAO(txtMaPhieu.getText());
+               pggdao.delete(txtMaPhieu.getText());
                fillTable();
                reset();
                MsgBox.alert(this, "Xóa thành công");
@@ -447,7 +447,7 @@ PhieuGiamGiaDAO pggdao = new PhieuGiamGiaDAO();
         // TODO add your handling code here:
         if(MsgBox.confirm(this, "Xác nhận cập nhật ?")){
             
-                pggdao.UPDATEDAO(readForm());
+                pggdao.update(readForm());
                 fillTable();
                 MsgBox.alert(this, "Cập nhật thành công");
             

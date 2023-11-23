@@ -1,0 +1,84 @@
+package com.shoplaptop.dao;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.shoplaptop.entity.HoaDon;
+import com.shoplaptop.utils.XJdbc;
+
+public class HoaDonDAO implements ShopLaptop365DAO<HoaDon, String> {
+	String SelectAll_SQL = "SELECT dbo.HoaDon.MaHD, HoaDon.MaKH,dbo.HinhThucVanChuyen.ID, dbo.HinhThucVanChuyen.HinhThuc,dbo.HinhThucThanhToan.ID,\r\n"
+			+ "	dbo.HinhThucThanhToan.HinhThuc, dbo.PhieuGiamGia.ID, PhieuGiamGia.MaPG, dbo.HoaDon.DotGiamGia, HoaDon.MaNV,\r\n"
+			+ "	dbo.HoaDon.NgayTao, dbo.HoaDon.TongTien\r\n"
+			+ "FROM dbo.HoaDon JOIN  dbo.KhachHang ON KhachHang.MaKH = HoaDon.MaKH\r\n"
+			+ "			JOIN dbo.HinhThucVanChuyen ON HinhThucVanChuyen.ID = HoaDon.HinhThucVanChuyen\r\n"
+			+ "			JOIN dbo.HinhThucThanhToan ON HinhThucThanhToan.ID = HoaDon.HinhThucThanhToan\r\n"
+			+ "			JOIN dbo.PhieuGiamGia ON PhieuGiamGia.ID = HoaDon.PhieuGiamGia\r\n"
+			+ "			JOIN dbo.DotGiamGia ON DotGiamGia.MaDG = dbo.HoaDon.DotGiamGia\r\n"
+			+ "			JOIN dbo.NhanVien ON NhanVien.MaNV = HoaDon.MaNV";
+	
+	
+	@Override
+	public String insert(HoaDon entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(HoaDon entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HoaDon selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HoaDon> selectAll() {
+		
+		return this.selectBySQL(SelectAll_SQL);
+	}
+
+	@Override
+	public List<HoaDon> selectBySQL(String sql, Object... args) {
+		List<HoaDon> list = new ArrayList<HoaDon>();
+		try {
+			ResultSet rs = XJdbc.query(sql, args);
+			while (rs.next()) {
+				HoaDon hoaDon = new HoaDon();
+				hoaDon.setMaHD(rs.getString("MaHD"));
+				hoaDon.setMaKH(rs.getString("MaKH"));
+				hoaDon.setID_HinhThucVanChuyen(rs.getInt("ID_HinhThucVanChuyen"));
+				hoaDon.setHinhThucVanChuyen(rs.getString("HinhThucVanChuyen"));
+				hoaDon.setID_HinhThucThanhToan(rs.getInt("ID_HinhThucThanhToan"));
+				hoaDon.setHinhThucThanhToan(rs.getString("HinhThucThanhToan"));
+				hoaDon.setID_PhieuGiamGia(rs.getInt("ID_PhieuGiamGia"));
+				hoaDon.setPhieuGiamGia(rs.getString("MaPG"));
+				hoaDon.setDotGiamGia(rs.getString("DotGiamGia"));
+				hoaDon.setMaNV(rs.getString("MaNV"));
+				hoaDon.setNgayTao(rs.getDate("NgayTao"));
+				hoaDon.setTongTien(rs.getDouble("TongTien"));
+				list.add(hoaDon);
+				
+				
+			}
+			rs.getStatement().getConnection().close();
+
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+	
+
+}

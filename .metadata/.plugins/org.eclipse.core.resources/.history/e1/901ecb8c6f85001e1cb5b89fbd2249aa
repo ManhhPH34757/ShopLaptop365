@@ -1,0 +1,61 @@
+package com.shoplaptop.dao;
+
+import java.util.List;
+
+import com.shoplaptop.entity.CTPhieuDoi;
+import com.shoplaptop.utils.XJdbc;
+
+public class CTPhieuDoiDAO implements ShopLaptop365DAO<CTPhieuDoi, String> {
+	String Insert_CTPhieuDoi = "INSERT dbo.CTPhieuDoi(ID_PhieuDoi,ID_Serial_Old,ID_Serial_New)VALUES(?,?,? )";
+	String Update_CTPhieuDoi ="UPDATE dbo.CTPhieuDoi SET ID_Serial_New = ? WHERE ID_PhieuDoi = ?";
+	String selectCTPhieuDoi = "SELECT PhieuDoi.ID, SerialNumber AS 'SerialNumber_Old', SerialNumber AS 'SerialNumber_New'  \r\n"
+			+ "FROM dbo.PhieuDoi JOIN dbo.CTPhieuDoi ON CTPhieuDoi.ID_PhieuDoi = PhieuDoi.ID JOIN dbo.Serial ON Serial.ID = CTPhieuDoi.ID_Serial_Old \r\n"
+			+ "WHERE dbo.PhieuDoi.MaPhieuDoi = ?";
+
+	@Override
+	public String insert(CTPhieuDoi ctPhieuDoi) {
+		try {
+			XJdbc.update(Insert_CTPhieuDoi,ctPhieuDoi.getID_PhieuDoi(), ctPhieuDoi.getID_Serial_Old(),ctPhieuDoi.getID_Serial_New());
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+		
+	}
+
+	@Override
+	public String update(CTPhieuDoi ctPhieuDoi) {
+		try {
+			XJdbc.update(Update_CTPhieuDoi, ctPhieuDoi.getID_Serial_New(),ctPhieuDoi.getID_PhieuDoi() );
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CTPhieuDoi selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CTPhieuDoi> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CTPhieuDoi> selectBySQL(String sql, Object... args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

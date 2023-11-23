@@ -1,0 +1,195 @@
+package com.shoplaptop.ui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+
+import com.shoplaptop.dao.HoaDonDAO;
+import com.shoplaptop.dao.PhieuDoiDAO;
+import com.shoplaptop.entity.HoaDon;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+
+public class ThemPhieuDoi extends JDialog {
+	public DefaultTableModel model;
+	public DefaultTableModel model1;
+	PhieuDoiDAO phieuDoiDAO = new PhieuDoiDAO();
+	List<PhieuDoiView> listPhieuDoi = new ArrayList<PhieuDoiView>();
+	HoaDonDAO hoaDonDAO = new HoaDonDAO();
+	List<HoaDon> listHoaDon = new ArrayList<HoaDon>();
+	PhieuDoiView phieuDoi;
+	private JPanel getconJPanel;
+	private JTextField txtMaPhieuDoi;
+	private JTable tblSpDaMua;
+	private JTable tblChiTietSanPhamDaMua;
+	private JTextField txtLiDo;
+	private JTextField txtMaHD;
+	private JTextField txtMaKH;
+	private JTextField txtMaNV;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ThemPhieuDoi dialog = new ThemPhieuDoi();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ThemPhieuDoi() {
+		setBounds(100, 100, 1080, 724);
+		setLocationRelativeTo(this);
+		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel(" PHIẾU ĐỔI");
+		lblNewLabel.setForeground(new Color(255, 128, 128));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel.setBounds(10, 10, 156, 35);
+		getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Mã Phiếu Đổi");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1.setBounds(45, 90, 126, 19);
+		getContentPane().add(lblNewLabel_1);
+		
+		txtMaPhieuDoi = new JTextField();
+		txtMaPhieuDoi.setColumns(10);
+		txtMaPhieuDoi.setBounds(217, 82, 388, 27);
+		getContentPane().add(txtMaPhieuDoi);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Mã Hóa Đơn");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1_1.setBounds(45, 151, 126, 19);
+		getContentPane().add(lblNewLabel_1_1);
+		
+		JComboBox<HoaDon> cboHoaDon = new JComboBox<HoaDon>();
+		cboHoaDon.setSelectedIndex(-1);
+		cboHoaDon.setBounds(217, 149, 388, 27);
+		getContentPane().add(cboHoaDon);
+		
+		JLabel lblNewLabel_2 = new JLabel("Sản phẩm Đã Mua");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2.setBounds(45, 208, 156, 31);
+		getContentPane().add(lblNewLabel_2);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(45, 249, 557, 97);
+		getContentPane().add(scrollPane);
+		
+		tblSpDaMua = new JTable();
+		tblSpDaMua.setFillsViewportHeight(true);
+		scrollPane.setViewportView(tblSpDaMua);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Chi Tiết Sản Phẩm Muốn Đổi");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1.setBounds(45, 379, 212, 31);
+		getContentPane().add(lblNewLabel_2_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(45, 420, 560, 91);
+		getContentPane().add(scrollPane_1);
+		
+		tblChiTietSanPhamDaMua = new JTable();
+		tblChiTietSanPhamDaMua.setFillsViewportHeight(true);
+		scrollPane_1.setViewportView(tblChiTietSanPhamDaMua);
+		
+		JButton btnDoi = new JButton("Đổi");
+		btnDoi.setForeground(new Color(64, 0, 0));
+		btnDoi.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnDoi.setBackground(new Color(255, 179, 179));
+		btnDoi.setBounds(543, 215, 62, 27);
+		getContentPane().add(btnDoi);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Serial");
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1_1_1.setBounds(45, 548, 68, 19);
+		getContentPane().add(lblNewLabel_1_1_1);
+		
+		JTextArea txtSerialNew = new JTextArea();
+		txtSerialNew.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtSerialNew.setBounds(123, 537, 482, 37);
+		getContentPane().add(txtSerialNew);
+		
+		JLabel lblNewLabel_3_2_1_1 = new JLabel("Lí Do");
+		lblNewLabel_3_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_3_2_1_1.setBounds(45, 616, 62, 20);
+		getContentPane().add(lblNewLabel_3_2_1_1);
+		
+		txtLiDo = new JTextField();
+		txtLiDo.setColumns(10);
+		txtLiDo.setBounds(123, 610, 482, 26);
+		getContentPane().add(txtLiDo);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("Hóa Đơn");
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_2.setBounds(653, 83, 87, 20);
+		getContentPane().add(lblNewLabel_2_2);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(653, 112, 380, 230);
+		getContentPane().add(panel);
+		
+		JLabel lblNewLabel_3 = new JLabel("MaHD");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3.setBounds(10, 30, 76, 20);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("MaKH");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_1.setBounds(10, 89, 76, 20);
+		panel.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("MaNV");
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_2.setBounds(10, 149, 76, 20);
+		panel.add(lblNewLabel_3_2);
+		
+		txtMaHD = new JTextField();
+		txtMaHD.setColumns(10);
+		txtMaHD.setBounds(96, 30, 259, 26);
+		panel.add(txtMaHD);
+		
+		txtMaKH = new JTextField();
+		txtMaKH.setColumns(10);
+		txtMaKH.setBounds(96, 89, 259, 26);
+		panel.add(txtMaKH);
+		
+		txtMaNV = new JTextField();
+		txtMaNV.setColumns(10);
+		txtMaNV.setBounds(96, 149, 259, 26);
+		panel.add(txtMaNV);
+		
+		JButton btnAddPhieuDoi = new JButton("Lưu Phiếu Đổi");
+		btnAddPhieuDoi.setForeground(new Color(64, 0, 0));
+		btnAddPhieuDoi.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnAddPhieuDoi.setBackground(new Color(255, 196, 196));
+		btnAddPhieuDoi.setBounds(873, 584, 156, 54);
+		getContentPane().add(btnAddPhieuDoi);
+	}
+}

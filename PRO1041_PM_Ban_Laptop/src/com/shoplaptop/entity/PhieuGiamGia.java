@@ -16,18 +16,18 @@ public class PhieuGiamGia {
     private Date Han;
     private int SoLuong;
     private float GiaGiam;
-    private float DieuKienGiam;
+    private float DieuKienHoaDon;
 
     public PhieuGiamGia() {
     }
 
-    public PhieuGiamGia(String MaPG, String TenPhieu, Date Han, int SoLuong, float GiaGiam, float DieuKienGiam) {
+    public PhieuGiamGia(String MaPG, String TenPhieu, Date Han, int SoLuong, float GiaGiam, float DieuKienHoaDon) {
         this.MaPG = MaPG;
         this.TenPhieu = TenPhieu;
         this.Han = Han;
         this.SoLuong = SoLuong;
         this.GiaGiam = GiaGiam;
-        this.DieuKienGiam = DieuKienGiam;
+        this.DieuKienHoaDon = DieuKienHoaDon;
     }
 
     public String getMaPG() {
@@ -70,17 +70,17 @@ public class PhieuGiamGia {
         this.GiaGiam = GiaGiam;
     }
 
-    public float getDieuKienGiam() {
-        return DieuKienGiam;
+    public float getDieuKienHoaDon() {
+        return DieuKienHoaDon;
     }
 
-    public void setDieuKienGiam(float DieuKienGiam) {
-        this.DieuKienGiam = DieuKienGiam;
+    public void setDieuKienHoaDon(float DieuKienHoaDon) {
+        this.DieuKienHoaDon = DieuKienHoaDon;
     }
 
     @Override
     public String toString() {
-        return "PhieuGiamGia{" + "MaPG=" + MaPG + ", TenPhieu=" + TenPhieu + ", Han=" + Han + ", SoLuong=" + SoLuong + ", GiaGiam=" + GiaGiam + ", DieuKienGiam=" + DieuKienGiam + '}';
+        return "PhieuGiamGia{" + "MaPG=" + MaPG + ", TenPhieu=" + TenPhieu + ", Han=" + Han + ", SoLuong=" + SoLuong + ", GiaGiam=" + GiaGiam + ", DieuKienHoaDon=" + DieuKienHoaDon + '}';
     }
     
     

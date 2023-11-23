@@ -1,0 +1,102 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.shoplaptop.dao;
+import java.sql.*;
+
+import com.shoplaptop.entity.KhachHang;
+import com.shoplaptop.entity.PhieuGiamGia;
+import com.shoplaptop.utils.XDate;
+import com.shoplaptop.utils.XJdbc;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ *
+ * @author Admin
+ */
+public class PhieuGiamGiaDAO implements ShopLaptop365DAO<PhieuGiamGia, String> {
+	Connection connection = new XJdbc().Connect();
+	Statement statement = null;
+	PreparedStatement pStatement = null;
+	ResultSet rSet = null;
+	
+	ArrayList<PhieuGiamGia> list = new ArrayList<PhieuGiamGia>();
+	
+		String insertPGG_SQL="insert into PhieuGiamGia values(?,?,?,?,?,?)";
+		String updatePGG_SQL="UPDATE dbo.PhieuGiamGia SET TenPhieu = ?, Han = ?, SoLuong = ?, GiaGiam = ?, DieuKienHoaDon = ? WHERE MaPG = ?";
+		String deletePGG_SQL="delete from PhieuGiamGia where MaPG = ?";
+		String selectAll_SQL="SELECT * FROM PhieuGiamGia";
+		String selectByMaKH = "SELECT * FROM dbo.KhachHang JOIN dbo.PhieuGiamGia ON dbo.KhachHang.PhieuGiamGia = dbo.PhieuGiamGia.MaPG WHERE MaKH = ? ";
+	@Override
+	public String insert(PhieuGiamGia phieuGiamGia) {
+		try {
+			XJdbc.update(insertPGG_SQL,phieuGiamGia.getMaPG(),phieuGiamGia.getTenPhieu(),phieuGiamGia.getHan(),phieuGiamGia.getSoLuong(),phieuGiamGia.getGiaGiam(),phieuGiamGia.getDieuKienHoaDon() );
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+
+	@Override
+	public String update(PhieuGiamGia phieuGiamGia) {
+		try {
+			XJdbc.update(insertPGG_SQL,phieuGiamGia.getTenPhieu(),phieuGiamGia.getHan(),phieuGiamGia.getSoLuong(),phieuGiamGia.getGiaGiam(),phieuGiamGia.getDieuKienHoaDon(),phieuGiamGia.getMaPG() );
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+		
+	}
+
+	@Override
+	public String delete(String MaPG) {
+		try {
+			XJdbc.update(deletePGG_SQL, MaPG);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+
+	@Override
+	public PhieuGiamGia selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PhieuGiamGia> selectAll() {
+		return selectBySQL(selectAll_SQL);
+	}
+
+	@Override
+	public List<PhieuGiamGia> selectBySQL(String sql, Object... args) {
+		try {
+			ResultSet rSet = XJdbc.query(sql, args);
+			while (rSet.next()) {
+				String MaPG = rSet.getString("MaPG");
+				String TenPhieu = rSet.getString("TenPhieu");
+				Date Han = rSet.getDate("Han");
+				int SoLuong = rSet.getInt("SoLuong");
+				Float GiaGiam = rSet.getFloat("GiaGiam");
+				Float DieuKienHoaDon = rSet.getFloat("DieuKienHoaDon");
+				
+				PhieuGiamGia phieuGiamGia = new PhieuGiamGia(MaPG, TenPhieu, Han, SoLuong, GiaGiam, DieuKienHoaDon);
+				list.add(phieuGiamGia);
+				
+			}
+			rSet.getStatement().getConnection().close();
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	
+		return list;
+	}
+}

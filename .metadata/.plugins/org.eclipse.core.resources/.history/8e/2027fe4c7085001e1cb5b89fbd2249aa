@@ -1,0 +1,65 @@
+package com.shoplaptop.dao;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.shoplaptop.entity.CTHoaDon;
+import com.shoplaptop.utils.XJdbc;
+
+public class CTHoaDonDAO implements ShopLaptop365DAO<CTHoaDon, String>{
+	String SelectCTHoaDon_SQL = "SELECT dbo.HoaDon.ID AS 'ID_HoaDon', dbo.HoaDon.MaHD ,dbo.Serial.ID AS 'ID_Serial', dbo.Serial.SerialNumber \r\n"
+			+ "FROM dbo.CTHoaDon JOIN dbo.HoaDon ON HoaDon.ID = CTHoaDon.MaHD\r\n"
+			+ "	JOIN dbo.Serial ON Serial.ID = CTHoaDon.ID_Serial";
+	@Override
+	public String insert(CTHoaDon entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(CTHoaDon entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CTHoaDon selectById(String MaHD) {
+		
+		return null;
+	}
+
+	@Override
+	public List<CTHoaDon> selectAll() {
+		
+		return this.selectBySQL(SelectCTHoaDon_SQL);
+	}
+
+	@Override
+	public List<CTHoaDon> selectBySQL(String sql, Object... args) {
+		List<CTHoaDon> list = new ArrayList<CTHoaDon>();
+		try {
+			ResultSet rs = XJdbc.query(sql, args);
+			while(rs.next()) {
+				CTHoaDon ctHoaDon = new CTHoaDon();
+				ctHoaDon.setID_HoaDon(rs.getInt("ID_HoaDon"));
+				ctHoaDon.setMaHD(rs.getString("MaHD"));
+				ctHoaDon.setID_Serial(rs.getInt("ID_Serial"));
+				ctHoaDon.setSerialNumber(rs.getString("SerialNumber"));
+				list.add(ctHoaDon);
+				
+			}
+			rs.getStatement().getConnection().close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+
+}
