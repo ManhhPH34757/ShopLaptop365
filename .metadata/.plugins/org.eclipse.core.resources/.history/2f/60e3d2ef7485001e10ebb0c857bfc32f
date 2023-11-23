@@ -1,0 +1,9 @@
+package com.shoplaptop.entity;
+
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/2f/60e3d2ef7485001e10ebb0c857bfc32f
+public class SerialNumber {
+========
+public class Hinhthucvanchuyen {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/a2/b015122ccd7f001e1a65a7f9f97a3665
+
+}

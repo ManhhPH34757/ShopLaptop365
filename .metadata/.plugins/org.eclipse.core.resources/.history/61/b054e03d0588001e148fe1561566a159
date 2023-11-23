@@ -1,0 +1,67 @@
+package com.shoplaptop.ui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/11/3028db301d89001e1122f58b2bd0e3dd
+public class FormDanhSachPhieuDoi extends JDialog {
+========
+public class DongLaptopManager extends JDialog {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/61/b054e03d0588001e148fe1561566a159
+
+	private final JPanel contentPanel = new JPanel();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/11/3028db301d89001e1122f58b2bd0e3dd
+			FormDanhSachPhieuDoi dialog = new FormDanhSachPhieuDoi();
+========
+			DongLaptopManager dialog = new DongLaptopManager();
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/61/b054e03d0588001e148fe1561566a159
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/11/3028db301d89001e1122f58b2bd0e3dd
+	public FormDanhSachPhieuDoi() {
+========
+	public DongLaptopManager() {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/61/b054e03d0588001e148fe1561566a159
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setLayout(new FlowLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+}

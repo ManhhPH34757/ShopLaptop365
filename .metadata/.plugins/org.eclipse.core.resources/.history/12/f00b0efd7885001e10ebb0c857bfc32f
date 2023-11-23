@@ -1,0 +1,9 @@
+package com.shoplaptop.dao;
+
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/ed/7015dfdc6685001e1cb5b89fbd2249aa
+public class HoaDonDAO {
+========
+public class SerialNumberDAO {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/12/f00b0efd7885001e10ebb0c857bfc32f
+
+}
