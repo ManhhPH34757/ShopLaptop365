@@ -1,0 +1,70 @@
+package com.shoplaptop.dao;
+
+import java.util.List;
+
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/5c/40a63aafc083001e1934e098e751a752
+import com.shoplaptop.entity.DongLaptop;
+
+public class DongLaptopDAO implements ShopLaptop365DAO<DongLaptop, String> {
+
+	@Override
+	public String insert(DongLaptop entity) {
+========
+import com.shoplaptop.entity.Hinhthucthanhtoan;
+
+public class Thanhtoanservice implements ShopLaptop365DAO<Hinhthucthanhtoan, String>{
+
+	@Override
+	public String insert(Hinhthucthanhtoan entity) {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/a/d007a4afcd7f001e1a65a7f9f97a3665
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/5c/40a63aafc083001e1934e098e751a752
+	public String update(DongLaptop entity) {
+========
+	public String update(Hinhthucthanhtoan entity) {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/a/d007a4afcd7f001e1a65a7f9f97a3665
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/5c/40a63aafc083001e1934e098e751a752
+	public DongLaptop selectById(String id) {
+========
+	public Hinhthucthanhtoan selectById(String id) {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/a/d007a4afcd7f001e1a65a7f9f97a3665
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/5c/40a63aafc083001e1934e098e751a752
+	public List<DongLaptop> selectAll() {
+========
+	public List<Hinhthucthanhtoan> selectAll() {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/a/d007a4afcd7f001e1a65a7f9f97a3665
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/5c/40a63aafc083001e1934e098e751a752
+	public List<DongLaptop> selectBySQL(String sql, Object... args) {
+========
+	public List<Hinhthucthanhtoan> selectBySQL(String sql, Object... args) {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/a/d007a4afcd7f001e1a65a7f9f97a3665
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

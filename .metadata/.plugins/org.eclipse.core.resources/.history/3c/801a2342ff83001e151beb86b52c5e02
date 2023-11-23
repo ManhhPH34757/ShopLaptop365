@@ -1,0 +1,101 @@
+package com.shoplaptop.dao;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.shoplaptop.entity.BienThe;
+import com.shoplaptop.entity.Laptop;
+import com.shoplaptop.utils.XJdbc;
+
+
+public class BienTheDAO implements ShopLaptop365DAO<BienThe, String> {
+	
+	String selectBienTheByLaptop = "SELECT dbo.BienThe.MaBienThe, dbo.Laptop.MaLaptop, (dbo.CPU.hangCPU + ' ' + dbo.CPU.loaiCPU) AS [CPU], (dbo.RAM.loaiRAM + ' - ' + CAST(dbo.RAM.dungLuong AS VARCHAR(10)) + ' GB ' + CAST(dbo.RAM.tocDoRAM AS VARCHAR(10)) + ' MHz') AS [RAM], (dbo.ManHinh.congNgheManHinh + ' - ' + CAST(dbo.ManHinh.kichThuocManHinh AS VARCHAR(10)) + ' - ' + dbo.ManHinh.doPhanGiai) AS [Màn hình], (dbo.GPU.loaiCard + ' - ' + dbo.GPU.hang) AS [GPU], (N'Ổ ' + dbo.OCung.kieuOCung + ' - ' + CAST(dbo.OCung.dungLuong AS VARCHAR(10)) + ' GB') AS [Ổ cứng], MauSac, (dbo.HeDieuHanh.os + ' ' + dbo.HeDieuHanh.versions + ' ' + CAST(dbo.HeDieuHanh.kieu AS VARCHAR(10)) + '(bit)') AS [Hệ điều hành], GiaVon, GiaBan, COUNT(SerialNumber) AS [Số lượng]  FROM dbo.BienThe JOIN dbo.Laptop ON Laptop.ID = BienThe.ID_Laptop LEFT JOIN dbo.Serial ON Serial.ID_BienThe = BienThe.ID JOIN dbo.CPU ON CPU.ID = BienThe.CPU JOIN dbo.RAM ON RAM.ID = BienThe.RAM JOIN dbo.ManHinh ON ManHinh.ID = BienThe.ManHinh JOIN dbo.GPU ON GPU.ID = BienThe.GPU JOIN dbo.OCung ON OCung.ID = BienThe.OCung JOIN dbo.HeDieuHanh ON HeDieuHanh.ID = BienThe.HeDieuHanh WHERE dbo.Laptop.MaLaptop = ?"
+			+ "GROUP BY (dbo.CPU.hangCPU + ' ' + dbo.CPU.loaiCPU),"
+			+ "         (dbo.RAM.loaiRAM + ' - ' + CAST(dbo.RAM.dungLuong AS VARCHAR(10)) + ' GB ' + CAST(dbo.RAM.tocDoRAM AS VARCHAR(10)) + ' MHz'),"
+			+ "         (dbo.ManHinh.congNgheManHinh + ' - ' + CAST(dbo.ManHinh.kichThuocManHinh AS VARCHAR(10)) + ' - ' + dbo.ManHinh.doPhanGiai ),"
+			+ "         (dbo.GPU.loaiCard + ' - ' + dbo.GPU.hang),"
+			+ "         (N'Ổ ' + dbo.OCung.kieuOCung + ' - ' + CAST(dbo.OCung.dungLuong AS VARCHAR(10)) + ' GB'),"
+			+ "         (dbo.HeDieuHanh.os + ' ' + dbo.HeDieuHanh.versions + ' ' + CAST(dbo.HeDieuHanh.kieu AS VARCHAR(10)) + '(bit)'),"
+			+ "         MaBienThe,"
+			+ "         MaLaptop,"
+			+ "         MauSac,"
+			+ "         GiaVon,"
+			+ "         GiaBan";
+	String selectBienTheByMaLaptop = "SELECT dbo.BienThe.MaBienThe, dbo.Laptop.MaLaptop, (dbo.CPU.hangCPU + ' ' + dbo.CPU.loaiCPU) AS [CPU], (dbo.RAM.loaiRAM + ' - ' + CAST(dbo.RAM.dungLuong AS VARCHAR(10)) + ' GB ' + CAST(dbo.RAM.tocDoRAM AS VARCHAR(10)) + ' MHz') AS [RAM], (dbo.ManHinh.congNgheManHinh + ' - ' + CAST(dbo.ManHinh.kichThuocManHinh AS VARCHAR(10)) + ' - ' + dbo.ManHinh.doPhanGiai) AS [Màn hình], (dbo.GPU.loaiCard + ' - ' + dbo.GPU.hang) AS [GPU], (N'Ổ ' + dbo.OCung.kieuOCung + ' - ' + CAST(dbo.OCung.dungLuong AS VARCHAR(10)) + ' GB') AS [Ổ cứng], MauSac, (dbo.HeDieuHanh.os + ' ' + dbo.HeDieuHanh.versions + ' ' + CAST(dbo.HeDieuHanh.kieu AS VARCHAR(10)) + '(bit)') AS [Hệ điều hành], GiaVon, GiaBan, COUNT(SerialNumber) AS [Số lượng]  FROM dbo.BienThe JOIN dbo.Laptop ON Laptop.ID = BienThe.ID_Laptop LEFT JOIN dbo.Serial ON Serial.ID_BienThe = BienThe.ID JOIN dbo.CPU ON CPU.ID = BienThe.CPU JOIN dbo.RAM ON RAM.ID = BienThe.RAM JOIN dbo.ManHinh ON ManHinh.ID = BienThe.ManHinh JOIN dbo.GPU ON GPU.ID = BienThe.GPU JOIN dbo.OCung ON OCung.ID = BienThe.OCung JOIN dbo.HeDieuHanh ON HeDieuHanh.ID = BienThe.HeDieuHanh WHERE dbo.BienThe.MaBienThe = ?"
+			+ "GROUP BY (dbo.CPU.hangCPU + ' ' + dbo.CPU.loaiCPU),"
+			+ "         (dbo.RAM.loaiRAM + ' - ' + CAST(dbo.RAM.dungLuong AS VARCHAR(10)) + ' GB ' + CAST(dbo.RAM.tocDoRAM AS VARCHAR(10)) + ' MHz'),"
+			+ "         (dbo.ManHinh.congNgheManHinh + ' - ' + CAST(dbo.ManHinh.kichThuocManHinh AS VARCHAR(10)) + ' - ' + dbo.ManHinh.doPhanGiai ),"
+			+ "         (dbo.GPU.loaiCard + ' - ' + dbo.GPU.hang),"
+			+ "         (N'Ổ ' + dbo.OCung.kieuOCung + ' - ' + CAST(dbo.OCung.dungLuong AS VARCHAR(10)) + ' GB'),"
+			+ "         (dbo.HeDieuHanh.os + ' ' + dbo.HeDieuHanh.versions + ' ' + CAST(dbo.HeDieuHanh.kieu AS VARCHAR(10)) + '(bit)'),"
+			+ "         MaBienThe,"
+			+ "         MaLaptop,"
+			+ "         MauSac,"
+			+ "         GiaVon,"
+			+ "         GiaBan";
+
+	@Override
+	public String insert(BienThe entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(BienThe entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BienThe selectById(String id) {
+		List<BienThe> list = this.selectBySQL(selectBienTheByMaLaptop, id);
+		if (list.isEmpty()) {
+			return null;
+		}
+		return list.get(0);
+	}
+
+	@Override
+	public List<BienThe> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BienThe> selectBySQL(String sql, Object... args) {
+		List<BienThe> list = new ArrayList<BienThe>();
+		try {
+			ResultSet rs = XJdbc.query(sql, args);
+			while (rs.next()) {
+				BienThe bienThe = new BienThe();
+				bienThe.setMaBienThe(rs.getString("MaBienThe"));
+				bienThe.setMaLaptop(rs.getString("MaLaptop"));
+				bienThe.setCpu(rs.getString("CPU"));
+				bienThe.setRam(rs.getString("RAM"));
+				bienThe.setManHinh(rs.getString("Màn hình"));
+				bienThe.setGpu(rs.getString("GPU"));
+				bienThe.setoCung(rs.getString("Ổ cứng"));
+				bienThe.setMauSac(rs.getString("MauSac"));
+				bienThe.setHeDieuHanh(rs.getString("Hệ điều hành"));
+				bienThe.setGiaVon(rs.getDouble("GiaVon"));
+				bienThe.setGiaBan(rs.getDouble("GiaBan"));
+				bienThe.setSoLuong(rs.getInt("Số lượng"));
+				list.add(bienThe);
+			}
+			rs.getStatement().getConnection().close();
+			return list;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
+}

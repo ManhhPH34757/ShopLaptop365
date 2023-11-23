@@ -1,0 +1,9 @@
+package com.shoplaptop.dao;
+
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/3f/6092c749ed82001e1c1588362257a0ea
+public class MoTaDAO {
+========
+public class NhanVienService {
+>>>>>>>> 90106a234a4957305850a157dfcb720aa02988c1:.metadata/.plugins/org.eclipse.core.resources/.history/72/a0b36c54087f001e1e65c96e244ffa59
+
+}
