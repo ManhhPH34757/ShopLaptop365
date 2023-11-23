@@ -5,8 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
+
+import javax.management.RuntimeErrorException;
 
 import com.shoplaptop.entity.KhachHang;
 import com.shoplaptop.utils.XDate;
@@ -18,20 +20,30 @@ public class KhachHangDAO implements ShopLaptop365DAO<KhachHang, String> {
 	PreparedStatement pStatement = null;
 	ResultSet rSet = null;
 	
-	ArrayList<KhachHang> list = new ArrayList<KhachHang>();
+	
 	
 		String insertKH_SQL="INSERT INTO dbo.KhachHang(MaKH, HoTen, SoDienThoai, NgaySinh, GioiTinh, Email, DiaChi) VALUES (?,?,?,?,?,?,?)";
-		String updateKH_SQL="UPDATE dbo.KhachHang SET (HoTen=?, SoDienThoai=?, NgaySinh=?, GioiTinh=?, Email=?, DiaChi=?) WHERE MaKH=?";
+		String updateKH_SQL="UPDATE dbo.KhachHang SET HoTen=?, SoDienThoai=?, NgaySinh=?, GioiTinh=?, Email=?, DiaChi=? WHERE MaKH=?";
 		String deleteKH_SQL="DELETE FROM KhachHang WHERE MaKH=?";
+		String selectBySDT = "SELECT * FROM KhachHang WHERE SoDienThoai like ? OR MaKH=? ";
+		String selectByMaKH = "SELECT * FROM KhachHang WHERE MaKH=?";
+		String selectAll_SQL="SELECT * FROM KhachHang";
+		String query =  "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY MaKH) AS rownum,  * FROM KhachHang) AS temp WHERE rownum BETWEEN ? AND ?";
+		
+		 
+		
 
 	@Override
 	public String insert(KhachHang khachHang) {
+		 
 		try {
+			
+//			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 			pStatement = connection.prepareStatement(insertKH_SQL);
 			pStatement.setString(1, khachHang.getMaKH());
 			pStatement.setString(2, khachHang.getHoTen());
 			pStatement.setString(3, khachHang.getSoDienThoai());
-			pStatement.setString(4,XDate.toString(khachHang.getNgaySinh(), "YYYY-MM-dd"));
+			pStatement.setString(4, XDate.toString(khachHang.getNgaySinh(), "yyyy-MM-dd"));
 			pStatement.setBoolean(5, khachHang.isGioiTinh());
 			pStatement.setString(6, khachHang.getEmail());
 			pStatement.setString(7, khachHang.getDiaChi());
@@ -40,28 +52,20 @@ public class KhachHangDAO implements ShopLaptop365DAO<KhachHang, String> {
 			return "Thêm khách hàng thành công";
 			
 		} catch (Exception e) {
-			return "Thêm khách hàng thất bại";
+//			return "Thêm khách hàng thất bại";
+			throw new RuntimeException();
 		}
 	}
 
 	@Override
 	public String update(KhachHang khachHang) {
 		try {
-			pStatement = connection.prepareStatement(updateKH_SQL);
-			
-			pStatement.setString(1, khachHang.getHoTen());
-			pStatement.setString(2, khachHang.getSoDienThoai());
-			pStatement.setString(3,XDate.toString(khachHang.getNgaySinh(), "YYYY-MM-dd"));
-			pStatement.setBoolean(4, khachHang.isGioiTinh());
-			pStatement.setString(5, khachHang.getEmail());
-			pStatement.setString(6, khachHang.getDiaChi());
-			pStatement.setString(7, khachHang.getMaKH());
-			
-			pStatement.executeUpdate();
+			XJdbc.update(updateKH_SQL, khachHang.getHoTen(),khachHang.getSoDienThoai(),khachHang.getNgaySinh(),khachHang.isGioiTinh(),khachHang.getEmail(),khachHang.getDiaChi(),khachHang.getMaKH());
 			return "Sửa khách hàng thành công";
 			
 		} catch (Exception e) {
 			return "Sửa khách hàng thất bại";
+			
 		}
 		
 	}
@@ -81,18 +85,25 @@ public class KhachHangDAO implements ShopLaptop365DAO<KhachHang, String> {
 		}
 	}
 
-	@Override
-	public KhachHang selectById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public KhachHang selectById(String SDT, String MaKH) {
+		List<KhachHang> list = this.selectBySQL(selectBySDT, SDT, MaKH);
+		if (list.isEmpty()) {
+			return null;
+		}
+		return list.get(0);
 	}
 
 	@Override
 	public List<KhachHang> selectAll() {
+		return selectBySQL(selectAll_SQL);
+	}
+
+	@Override
+	public List<KhachHang> selectBySQL(String sql, Object... args) {
+		List<KhachHang> list = new ArrayList<KhachHang>();
 		try {
-			String sellectall= "SELECT * FROM dbo.KhachHang";
-			statement = connection.createStatement();
-			rSet =statement.executeQuery(sellectall);
+			ResultSet rSet = XJdbc.query(sql, args);
 			while (rSet.next()) {
 				String MaKH = rSet.getString("MaKH");
 				String HoTen = rSet.getString("HoTen");
@@ -106,17 +117,41 @@ public class KhachHangDAO implements ShopLaptop365DAO<KhachHang, String> {
 				list.add(khachHang);
 				
 			}
+			rSet.getStatement().getConnection().close();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	
 		return list;
 	}
 
 	@Override
-	public List<KhachHang> selectBySQL(String sql, Object... args) {
+	public KhachHang selectByMaKH(String MaKH) {
+		List<KhachHang> list = this.selectBySQL(selectByMaKH, MaKH);
+		if (list.isEmpty()) {
+			return null;
+		}
+		return list.get(0);
+	}
+
+	@Override
+	public KhachHang selectByTenKH(String TenKH) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public KhachHang selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<KhachHang> sellectAllKhachHang(int count) {
+		return selectBySQL(query, count, count +4);
+		
+		
+	}
+
+
 
 }

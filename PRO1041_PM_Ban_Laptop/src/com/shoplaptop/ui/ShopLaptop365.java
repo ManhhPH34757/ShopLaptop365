@@ -19,6 +19,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -161,6 +163,11 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(separator);
 		
 		JButton btnKhchHng = new JButton("Khách hàng");
+		btnKhchHng.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new QuanLyKhachHang().setVisible(true);
+			}
+		});
 		btnKhchHng.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/Users.png")));
 		btnKhchHng.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnKhchHng.setHorizontalTextPosition(SwingConstants.CENTER);

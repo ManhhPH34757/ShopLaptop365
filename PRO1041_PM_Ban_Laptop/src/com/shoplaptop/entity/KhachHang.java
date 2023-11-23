@@ -2,6 +2,9 @@ package com.shoplaptop.entity;
 
 import java.util.Date;
 
+import com.shoplaptop.ui.DatePicker;
+import com.toedter.calendar.JDateChooser;
+
 public class KhachHang {
 private String MaKH;
 private String HoTen;
@@ -17,7 +20,6 @@ public KhachHang() {
 
 public KhachHang(String maKH, String hoTen, String soDienThoai, Date ngaySinh, boolean gioiTinh, String email,
 		String diaChi) {
-	super();
 	MaKH = maKH;
 	HoTen = hoTen;
 	SoDienThoai = soDienThoai;
@@ -51,12 +53,12 @@ public void setSoDienThoai(String soDienThoai) {
 	SoDienThoai = soDienThoai;
 }
 
-public Date getNgaySinh() {
+public  Date getNgaySinh() {
 	return NgaySinh;
 }
 
-public void setNgaySinh(Date ngaySinh) {
-	NgaySinh = ngaySinh;
+public void setNgaySinh(Date date) {
+	NgaySinh = date;
 }
 
 public boolean isGioiTinh() {

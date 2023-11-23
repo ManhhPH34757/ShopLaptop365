@@ -7,52 +7,69 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Font;
 import javax.swing.JTextField;
 
 import com.shoplaptop.dao.KhachHangDAO;
 import com.shoplaptop.entity.KhachHang;
+import com.shoplaptop.utils.MsgBox;
 import com.shoplaptop.utils.XDate;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 public class ChiTietKhachHang extends JDialog {
 	
 	public static JTextField txtMaKH;
 	public static JTextField txtTenKH;
 	public static JTextField txtSDT;
-	public static JTextField txtNgaySinh;
 	public static JTextField txtEmail;
 	public static JTextArea txtDiaChi;
 	public static JRadioButton rdoNam;
 	public static JRadioButton rdoNu;
+	public static Object txtHoTen;
+	private QuanLyKhachHang quanLyKhachHang;
+	public static KhachHangDAO khachHangDAO;
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ChiTietKhachHang dialog = new ChiTietKhachHang();
-					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					ChiTietKhachHang dialog = new ChiTietKhachHang();
+//					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+//					dialog.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+	private Object model;
+	public static JDateChooser dateChooser;
+
 
 	/**
 	 * Create the dialog.
 	 */
-	public ChiTietKhachHang() {
+	public ChiTietKhachHang(QuanLyKhachHang quanLyKhachHang) {
+		this.quanLyKhachHang = quanLyKhachHang;
+		getContentPane().setBackground(new Color(245, 255, 250));
+		setTitle("Quản lý khách hàng");
+		setForeground(new Color(51, 204, 204));
+		getContentPane().setForeground(new Color(0, 128, 192));
 		setBounds(100, 100, 696, 517);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
@@ -92,31 +109,32 @@ public class ChiTietKhachHang extends JDialog {
 		getContentPane().add(lblNewLabel_1_6);
 		
 		txtMaKH = new JTextField();
+		txtMaKH.setForeground(new Color(0, 0, 0));
 		txtMaKH.setBounds(10, 65, 267, 20);
 		getContentPane().add(txtMaKH);
 		txtMaKH.setColumns(10);
 		
 		txtTenKH = new JTextField();
+		txtTenKH.setForeground(new Color(0, 0, 0));
 		txtTenKH.setColumns(10);
 		txtTenKH.setBounds(10, 119, 267, 20);
 		getContentPane().add(txtTenKH);
 		
 		txtSDT = new JTextField();
+		txtSDT.setForeground(new Color(0, 0, 0));
+		txtSDT.setText("\r\n");
 		txtSDT.setColumns(10);
 		txtSDT.setBounds(10, 191, 267, 20);
 		getContentPane().add(txtSDT);
 		
-		txtNgaySinh = new JTextField();
-		txtNgaySinh.setColumns(10);
-		txtNgaySinh.setBounds(370, 65, 267, 20);
-		getContentPane().add(txtNgaySinh);
-		
 		txtEmail = new JTextField();
+		txtEmail.setForeground(new Color(0, 0, 0));
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(370, 119, 267, 20);
 		getContentPane().add(txtEmail);
 		
 		txtDiaChi = new JTextArea();
+		txtDiaChi.setForeground(new Color(0, 0, 0));
 		txtDiaChi.setBounds(10, 266, 267, 88);
 		getContentPane().add(txtDiaChi);
 		
@@ -133,24 +151,64 @@ public class ChiTietKhachHang extends JDialog {
 		buttonGroup.add(rdoNu);
 		
 		JButton btnSuaKH = new JButton("Sửa");
+		btnSuaKH.setBackground(Color.PINK);
+		btnSuaKH.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnSuaKH.setForeground(new Color(30, 144, 255));
+		btnSuaKH.setIcon(new ImageIcon(ChiTietKhachHang.class.getResource("/com/shoplaptop/icon/Edit.png")));
 		btnSuaKH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(getContentPane(), new KhachHangDAO().update(getForm()));
+				
+				quanLyKhachHang.updateKH(getForm());
+				quanLyKhachHang.fillTable(new KhachHangDAO().selectAll());
+				
+				dispose();
+				
+				
 			}
 		});
-		btnSuaKH.setBounds(400, 395, 89, 23);
+		btnSuaKH.setBounds(400, 395, 109, 41);
 		getContentPane().add(btnSuaKH);
 		
 		JButton btnXoaKH = new JButton("Xóa");
-		btnXoaKH.setBounds(548, 395, 89, 23);
+		btnXoaKH.setBackground(Color.PINK);
+		btnXoaKH.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXoaKH.setForeground(new Color(0, 128, 255));
+		btnXoaKH.setIcon(new ImageIcon(ChiTietKhachHang.class.getResource("/com/shoplaptop/icon/Delete.png")));
+		btnXoaKH.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(JOptionPane.showConfirmDialog(getContentPane(), "Xác nhận xóa")==JOptionPane.YES_NO_OPTION) {
+					deleteKH();
+					quanLyKhachHang.fillTable(new KhachHangDAO().selectAll());
+					
+				}
+				dispose();
+				
+			//	new KhachHangJDialog().setVisible(true);
+			}
+		});
+		btnXoaKH.setBounds(535, 395, 102, 41);
 		getContentPane().add(btnXoaKH);
+		
+		dateChooser = new JDateChooser();
+		dateChooser.setBounds(370, 65, 267, 20);
+		getContentPane().add(dateChooser);
+		dateChooser.getCalendarButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 
 	}
+
+		
+		
+	
 	public void setForm(KhachHang khachHang) {
 		txtMaKH.setText(khachHang.getMaKH());
 		txtTenKH.setText(khachHang.getHoTen());
 		txtSDT.setText(khachHang.getSoDienThoai()+"");
-		txtNgaySinh.setText(XDate.toString(khachHang.getNgaySinh(),"YYYY-MM-dd"));
+//		txtNgaySinh.setText(XDate.toString(khachHang.getNgaySinh(),"yyyy-MM-dd"));
+		dateChooser.setDate(khachHang.getNgaySinh());
 		rdoNam.setSelected(khachHang.isGioiTinh());
 		rdoNu.setSelected(!khachHang.isGioiTinh());
 		txtEmail.setText(khachHang.getEmail());
@@ -161,18 +219,18 @@ public class ChiTietKhachHang extends JDialog {
 		khachHang.setMaKH(txtMaKH.getText());
 		khachHang.setHoTen(txtTenKH.getText());
 		khachHang.setSoDienThoai(txtSDT.getText());
-		khachHang.setNgaySinh(XDate.toDate(txtNgaySinh.getText(), "YYYY-MM-dd"));
+		khachHang.setNgaySinh(dateChooser.getDate());
+//		khachHang.setNgaySinh(XDate.toDate(txtNgaySinh.getText(), "yyyy-MM-dd"));
 		khachHang.setGioiTinh(rdoNam.isSelected());
 		khachHang.setEmail(txtEmail.getText());
 		khachHang.setDiaChi(txtDiaChi.getText());
 		return khachHang;
 		
 	}
-	public void updateKH() {
+	
+	public void deleteKH() {
 		KhachHang khachHang = getForm();
-		JOptionPane.showMessageDialog(getContentPane(), new KhachHangDAO().update(khachHang));
-		
-		
+		JOptionPane.showMessageDialog(getContentPane(), new KhachHangDAO().delete(khachHang.getMaKH()));
 	}
 
 }
