@@ -81,5 +81,17 @@ public class HeDieuHanhDAO implements ShopLaptop365DAO<HeDieuHanh, Integer> {
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public HeDieuHanh selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HeDieuHanh selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

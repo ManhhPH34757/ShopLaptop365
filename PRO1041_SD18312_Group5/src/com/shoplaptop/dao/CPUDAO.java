@@ -69,4 +69,16 @@ public class CPUDAO implements ShopLaptop365DAO<CPU, Integer>{
 		}
 	}
 
+	@Override
+	public CPU selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CPU selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

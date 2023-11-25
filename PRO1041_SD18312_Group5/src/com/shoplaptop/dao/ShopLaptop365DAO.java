@@ -1,6 +1,6 @@
 package com.shoplaptop.dao;
 
-import java.util.List;
+import java.util.List;import javax.swing.text.html.parser.Entity;
 
 public interface ShopLaptop365DAO <EntityType, KeyType> {
 	
@@ -10,5 +10,8 @@ public interface ShopLaptop365DAO <EntityType, KeyType> {
 	public EntityType selectById(KeyType id);
 	public List<EntityType> selectAll();
 	public List<EntityType> selectBySQL(String sql, Object... args);
+	public EntityType selectByMaKH(String MaKH);
+	public EntityType selectByTenKH (String Tenkh);
+	
 	
 }

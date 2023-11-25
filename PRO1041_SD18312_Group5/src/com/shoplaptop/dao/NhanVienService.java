@@ -143,6 +143,18 @@ public class NhanVienService implements ShopLaptop365DAO<NhanVien, String>{
 	public List<NhanVien> sellectAllNhanVien(int count) {
 		return selectBySQL(query, count,count+2);
 	}
+
+	@Override
+	public NhanVien selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NhanVien selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

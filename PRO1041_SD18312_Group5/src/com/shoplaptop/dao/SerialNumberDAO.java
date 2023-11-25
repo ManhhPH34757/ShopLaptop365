@@ -73,5 +73,17 @@ public class SerialNumberDAO implements ShopLaptop365DAO<SerialNumber, String>{
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public SerialNumber selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SerialNumber selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
