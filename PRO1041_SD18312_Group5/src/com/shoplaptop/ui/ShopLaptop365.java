@@ -38,6 +38,7 @@ public class ShopLaptop365 extends JFrame {
 					ShopLaptop365 frame = new ShopLaptop365();
 					frame.setVisible(true);
 				} catch (Exception e) {
+
 					e.printStackTrace();
 				}
 			}
@@ -134,7 +135,7 @@ public class ShopLaptop365 extends JFrame {
 		mntmCapNhatThongTinCaNhan.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		mnNewMenu_2.add(mntmCapNhatThongTinCaNhan);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));    
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -215,6 +216,11 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btntGimGi);
 		
 		JButton btnNewButton_8 = new JButton("Phiếu đổi");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new FormDanhSachPhieuDoi().setVisible(true);
+			}
+		});
 		btnNewButton_8.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/phieudoi.png")));
 		btnNewButton_8.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnNewButton_8.setHorizontalTextPosition(SwingConstants.CENTER);

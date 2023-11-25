@@ -1,0 +1,46 @@
+package com.shoplaptop.dao;
+
+import java.util.List;
+
+import com.shoplaptop.entity.PhieuDoi;
+
+public class PhieuDoiDAO implements ShopLaptop365DAO<PhieuDoi, String>{
+
+		String Insert_SQL = "INSERT dbo.PhieuDoi(MaKH,MaHD,ID_Serial,NgayTao,LiDo)VALUES(?,?,?,?,? )";
+	@Override
+	public String insert(PhieuDoi entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(PhieuDoi entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PhieuDoi selectById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PhieuDoi> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PhieuDoi> selectBySQL(String sql, Object... args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

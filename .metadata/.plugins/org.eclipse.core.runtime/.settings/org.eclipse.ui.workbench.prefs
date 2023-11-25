@@ -21,11 +21,81 @@ org.eclipse.jface.textfont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|
 org.eclipse.mylyn.wikitext.ui.presentation.textFont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.pde.internal.ui.compare.ManifestContentMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.pde.internal.ui.compare.PluginContentMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=255,255,255
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=255,255,255
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=16,16,16
+org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=255,255,255
+org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=255,255,255
+org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=242,242,242
+=======
+org.eclipse.search.ui.match.highlight=73,83,90
+org.eclipse.ui.editors.backgroundColor=0,0,0
+org.eclipse.ui.editors.currentLineColor=7,8,8
+org.eclipse.ui.editors.findScope=62,70,76
+org.eclipse.ui.editors.foregroundColor=255,255,255
+org.eclipse.ui.editors.lineNumberRulerColor=120,135,145
+org.eclipse.ui.editors.printMarginColor=62,70,76
+org.eclipse.ui.showkeys.backgroundColor=182,190,195
+>>>>>>> c260eb81a6fb8497c81e693a3be6354217e7b652
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=37,41,45
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=204,204,204
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=37,41,45
 org.eclipse.ui.workbench.ACTIVE_TAB_TEXT_COLOR=221,221,221
 org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=53,60,65
 org.eclipse.ui.workbench.INACTIVE_TAB_TEXT_COLOR=187,187,187
+<<<<<<< HEAD
+=======
+org.eclipse.wst.jsdt.ui.abstractMethodInvocationHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.annotationElementReferenceHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.annotationHighlighting=143,155,163
+org.eclipse.wst.jsdt.ui.autoboxingHighlighting=255,255,0
+org.eclipse.wst.jsdt.ui.classHighlighting=0,255,255
+org.eclipse.wst.jsdt.ui.content_assist_completion_replacement_background=123,123,0
+org.eclipse.wst.jsdt.ui.content_assist_completion_replacement_foreground=255,127,127
+org.eclipse.wst.jsdt.ui.content_assist_parameters_background=0,0,0
+org.eclipse.wst.jsdt.ui.content_assist_parameters_foreground=255,255,255
+org.eclipse.wst.jsdt.ui.content_assist_proposals_background=0,0,0
+org.eclipse.wst.jsdt.ui.content_assist_proposals_foreground=255,255,255
+org.eclipse.wst.jsdt.ui.deprecatedMemberHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.enumHighlighting=247,173,123
+org.eclipse.wst.jsdt.ui.fieldHighlighting=159,159,255
+org.eclipse.wst.jsdt.ui.inheritedMethodInvocationHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.interfaceHighlighting=125,158,255
+org.eclipse.wst.jsdt.ui.java_bracket=255,255,255
+org.eclipse.wst.jsdt.ui.java_comment_task_tag=73,93,111
+org.eclipse.wst.jsdt.ui.java_default=255,255,255
+org.eclipse.wst.jsdt.ui.java_doc_default=75,113,227
+org.eclipse.wst.jsdt.ui.java_doc_keyword=73,93,111
+org.eclipse.wst.jsdt.ui.java_doc_link=96,96,255
+org.eclipse.wst.jsdt.ui.java_doc_tag=104,104,130
+org.eclipse.wst.jsdt.ui.java_keyword=255,0,255
+org.eclipse.wst.jsdt.ui.java_keyword_return=255,0,255
+org.eclipse.wst.jsdt.ui.java_multi_line_comment=106,213,160
+org.eclipse.wst.jsdt.ui.java_operator=255,255,255
+org.eclipse.wst.jsdt.ui.java_single_line_comment=106,213,160
+org.eclipse.wst.jsdt.ui.java_string=212,0,255
+org.eclipse.wst.jsdt.ui.localVariableDeclarationHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.localVariableHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.matchingBracketsColor=53,60,65
+org.eclipse.wst.jsdt.ui.methodDeclarationHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.methodDeclarationNameHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.methodHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.parameterVariableHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.pf_coloring_argument=255,0,255
+org.eclipse.wst.jsdt.ui.pf_coloring_assignment=255,255,255
+org.eclipse.wst.jsdt.ui.pf_coloring_comment=106,213,160
+org.eclipse.wst.jsdt.ui.pf_coloring_key=255,255,255
+org.eclipse.wst.jsdt.ui.pf_coloring_value=212,0,255
+org.eclipse.wst.jsdt.ui.staticFieldHighlighting=159,159,255
+org.eclipse.wst.jsdt.ui.staticFinalFieldHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.staticMethodInvocationHighlighting=255,255,255
+org.eclipse.wst.jsdt.ui.typeArgumentHighlighting=255,255,0
+org.eclipse.wst.jsdt.ui.typeParameterHighlighting=247,173,123
+org.eclipse.wst.jsdt.ui.typeVariableDeclarationHighlighting=247,173,123
+>>>>>>> 5333666a20df74651b67483a033cff49cf04782a
+>>>>>>> c260eb81a6fb8497c81e693a3be6354217e7b652
 org.eclipse.wst.sse.ui.textfont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 terminal.views.view.font.definition=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
