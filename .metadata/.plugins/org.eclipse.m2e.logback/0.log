@@ -19,6 +19,9 @@
 =======
 >>>>>>> c5286f08c7befc186625ef63c3fed68699bfc654
 2023-11-21 08:00:28,504 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+<<<<<<< HEAD
 2023-11-21 08:44:35,316 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2023-11-21 13:41:25,413 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2023-11-22 08:36:05,827 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+=======
+>>>>>>> 511f8c33dfd295ee445f8abe3481f1f342ad1cbd

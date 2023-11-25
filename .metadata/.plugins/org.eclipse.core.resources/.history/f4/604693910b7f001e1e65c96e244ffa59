@@ -11,13 +11,14 @@ public class NhanVien {
 	private String email;
 	private String hinh;
 	private String diaChi;
+	private boolean vaiTro;
 	
 	public NhanVien() {
 		
 	}
 
 	public NhanVien(String maNV, String hoTen, String soDienThoai, Date ngaySinh, boolean gioiTinh, String email,
-			String hinh, String diaChi) {
+			String hinh, String diaChi, boolean vaiTro) {
 		this.maNV = maNV;
 		this.hoTen = hoTen;
 		this.soDienThoai = soDienThoai;
@@ -26,6 +27,7 @@ public class NhanVien {
 		this.email = email;
 		this.hinh = hinh;
 		this.diaChi = diaChi;
+		this.vaiTro = vaiTro;
 	}
 
 	public String getMaNV() {
@@ -91,6 +93,16 @@ public class NhanVien {
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
 	}
+
+	public boolean isVaiTro() {
+		return vaiTro;
+	}
+
+	public void setVaiTro(boolean vaiTro) {
+		this.vaiTro = vaiTro;
+	}
+	
+	
 
 	
 }
