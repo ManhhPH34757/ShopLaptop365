@@ -76,17 +76,7 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 		}
 	}
 
-	@Override
-	public BaoCao_LS_PhieuDoi selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BaoCao_LS_PhieuDoi selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	}
 
 

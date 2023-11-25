@@ -98,16 +98,6 @@ public class LaptopDAO implements ShopLaptop365DAO<Laptop, String>{
 		}
 	}
 
-	@Override
-	public Laptop selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Laptop selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

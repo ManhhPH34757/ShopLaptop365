@@ -69,16 +69,5 @@ public class ManHinhDAO implements ShopLaptop365DAO<ManHinh, Integer> {
 		}
 	}
 
-	@Override
-	public ManHinh selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ManHinh selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }

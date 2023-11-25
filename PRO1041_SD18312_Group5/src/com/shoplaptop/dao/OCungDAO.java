@@ -64,16 +64,6 @@ public class OCungDAO implements ShopLaptop365DAO<OCung, Integer> {
 		}
 	}
 
-	@Override
-	public OCung selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public OCung selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

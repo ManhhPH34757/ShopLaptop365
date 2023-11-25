@@ -126,7 +126,6 @@ public class KhachHangDAO implements ShopLaptop365DAO<KhachHang, String> {
 		return list;
 	}
 
-	@Override
 	public KhachHang selectByMaKH(String MaKH) {
 		List<KhachHang> list = this.selectBySQL(selectByMaKH, MaKH);
 		if (list.isEmpty()) {
@@ -135,7 +134,6 @@ public class KhachHangDAO implements ShopLaptop365DAO<KhachHang, String> {
 		return list.get(0);
 	}
 
-	@Override
 	public KhachHang selectByTenKH(String TenKH) {
 		// TODO Auto-generated method stub
 		return null;

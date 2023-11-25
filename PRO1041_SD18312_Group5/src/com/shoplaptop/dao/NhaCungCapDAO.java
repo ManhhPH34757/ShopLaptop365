@@ -86,16 +86,5 @@ public class NhaCungCapDAO implements ShopLaptop365DAO<NhaCungCap, String> {
 		}
 	}
 
-	@Override
-	public NhaCungCap selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public NhaCungCap selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

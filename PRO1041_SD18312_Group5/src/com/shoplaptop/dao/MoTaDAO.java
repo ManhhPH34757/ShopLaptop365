@@ -83,16 +83,5 @@ public class MoTaDAO implements ShopLaptop365DAO<MoTa, String>{
 		}
 	}
 
-	@Override
-	public MoTa selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public MoTa selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }

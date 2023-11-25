@@ -64,16 +64,5 @@ public class PhanLoaiDAO implements ShopLaptop365DAO<PhanLoai, Integer> {
 		}
 	}
 
-	@Override
-	public PhanLoai selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public PhanLoai selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }

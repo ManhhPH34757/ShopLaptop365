@@ -69,16 +69,6 @@ public class RAMDAO implements ShopLaptop365DAO<RAM, Integer> {
 		}
 	}
 
-	@Override
-	public RAM selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RAM selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

@@ -10,8 +10,8 @@ public interface ShopLaptop365DAO <EntityType, KeyType> {
 	public EntityType selectById(KeyType id);
 	public List<EntityType> selectAll();
 	public List<EntityType> selectBySQL(String sql, Object... args);
-	public EntityType selectByMaKH(String MaKH);
-	public EntityType selectByTenKH (String Tenkh);
+//	public EntityType selectByMaKH(String MaKH);
+//	public EntityType selectByTenKH (String Tenkh);
 	
 	
 }

@@ -70,4 +70,6 @@ public class Thanhtoanservice implements ShopLaptop365DAO<Hinhthucthanhtoan, Str
 		return list;
 	}
 
+	
+
 }

@@ -98,16 +98,5 @@ public class TaiKhoanDAO implements ShopLaptop365DAO<TaiKhoan, String> {
 		}
 	}
 
-	@Override
-	public TaiKhoan selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public TaiKhoan selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

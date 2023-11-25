@@ -64,16 +64,5 @@ public class HangDAO implements ShopLaptop365DAO<Hang, Integer> {
 		}
 	}
 
-	@Override
-	public Hang selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Hang selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

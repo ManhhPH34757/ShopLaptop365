@@ -137,16 +137,5 @@ public class BienTheDAO implements ShopLaptop365DAO<BienThe, String> {
 		}
 	}
 
-	@Override
-	public BienThe selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BienThe selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

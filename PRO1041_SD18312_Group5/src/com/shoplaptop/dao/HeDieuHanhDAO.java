@@ -82,16 +82,5 @@ public class HeDieuHanhDAO implements ShopLaptop365DAO<HeDieuHanh, Integer> {
 		}
 	}
 
-	@Override
-	public HeDieuHanh selectByMaKH(String MaKH) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public HeDieuHanh selectByTenKH(String Tenkh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

@@ -11,13 +11,9 @@ public class XJdbc {
 	private final String ServerName = "localhost";
 	private final String DBName = "PM_Ban_Laptop";
 	private final String PortNumber = "1433";
-<<<<<<< HEAD
 	private final String User = "NguyenThiHuongGiang";
 	private final String Pass = "Giang08082004@@";
-=======
-	private final String User = "sa";
-	private final String Pass = "123456";
->>>>>>> d9bac6b85dc620dc9e8f8245224c8b74e6a8d600
+
 	
 	String url = "jdbc:sqlserver://"+ServerName+":"+PortNumber+";databaseName="+DBName+";user="+User+";password="+Pass+";encrypt=false";
 	
