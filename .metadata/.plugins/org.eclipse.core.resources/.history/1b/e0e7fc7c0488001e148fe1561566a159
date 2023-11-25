@@ -4,7 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/55/e07e76d41889001e1122f58b2bd0e3dd
+public class ThemPhieuDoi extends JDialog {
+========
 public class HangManager extends JDialog {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/1b/e0e7fc7c0488001e148fe1561566a159
 
 	/**
 	 * Launch the application.
@@ -13,7 +17,11 @@ public class HangManager extends JDialog {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/55/e07e76d41889001e1122f58b2bd0e3dd
+					ThemPhieuDoi dialog = new ThemPhieuDoi();
+========
 					HangManager dialog = new HangManager();
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/1b/e0e7fc7c0488001e148fe1561566a159
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
 				} catch (Exception e) {
@@ -26,7 +34,11 @@ public class HangManager extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/55/e07e76d41889001e1122f58b2bd0e3dd
+	public ThemPhieuDoi() {
+========
 	public HangManager() {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/1b/e0e7fc7c0488001e148fe1561566a159
 		setBounds(100, 100, 450, 300);
 
 	}

@@ -1,5 +1,9 @@
 package com.shoplaptop.entity;
 
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/f4/70895c596285001e1cb5b89fbd2249aa
+public class CTHoaDon {
+========
 public class Hinhthucthanhtoan {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/d6/a0069aebcc7f001e1a65a7f9f97a3665
 
 }

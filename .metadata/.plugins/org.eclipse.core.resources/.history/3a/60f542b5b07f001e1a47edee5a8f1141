@@ -198,7 +198,15 @@ public class ShopLaptop365 extends JFrame {
 		btnPhiuGimGi.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnPhiuGimGi.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPhiuGimGi.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/36/d039dca75b85001e1cb5b89fbd2249aa
+               btnPhiuGimGi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            new FormPhieuGiamGia().setVisible(true);
+			}
+		});
+========
               
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/3a/60f542b5b07f001e1a47edee5a8f1141
 		toolBar.add(btnPhiuGimGi);
 		
 		JButton btntGimGi = new JButton("Đợt giảm giá");
@@ -209,6 +217,11 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(btntGimGi);
 		
 		JButton btnNewButton_8 = new JButton("Phiếu đổi");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new DanhSachPhieuDoi().setVisible(true);
+			}
+		});
 		btnNewButton_8.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/phieudoi.png")));
 		btnNewButton_8.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnNewButton_8.setHorizontalTextPosition(SwingConstants.CENTER);

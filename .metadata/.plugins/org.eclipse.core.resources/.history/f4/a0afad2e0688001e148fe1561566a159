@@ -1,0 +1,47 @@
+package com.shoplaptop.ui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/ec/20d3b1461d89001e1122f58b2bd0e3dd
+public class FormDanhSachPhieuDoi extends JDialog {
+========
+@SuppressWarnings("serial")
+public class CPUManager extends JDialog {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/f4/a0afad2e0688001e148fe1561566a159
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/ec/20d3b1461d89001e1122f58b2bd0e3dd
+					FormDanhSachPhieuDoi dialog = new FormDanhSachPhieuDoi();
+========
+					CPUManager dialog = new CPUManager();
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/f4/a0afad2e0688001e148fe1561566a159
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/ec/20d3b1461d89001e1122f58b2bd0e3dd
+	public FormDanhSachPhieuDoi() {
+========
+	public CPUManager() {
+>>>>>>>> 5333666a20df74651b67483a033cff49cf04782a:.metadata/.plugins/org.eclipse.core.resources/.history/f4/a0afad2e0688001e148fe1561566a159
+		setBounds(100, 100, 450, 300);
+
+	}
+
+}

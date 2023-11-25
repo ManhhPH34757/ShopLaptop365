@@ -10,6 +10,7 @@ import com.shoplaptop.utils.XJdbc;
 
 public class SerialNumberDAO implements ShopLaptop365DAO<SerialNumber, String>{
 
+	String insertSerial1 = "";
 	String insertSerial = "INSERT INTO Serial(ID_BienThe, SerialNumber, TrangThai) \r\n"
 			+ "VALUES (?, ?, ?)";
 	String selectBySerialNumber = "SELECT Serial.ID, ID_BienThe, dbo.BienThe.MaBienThe, SerialNumber, TrangThai FROM dbo.Serial JOIN dbo.BienThe ON BienThe.ID = Serial.ID_BienThe WHERE SerialNumber = ?";
