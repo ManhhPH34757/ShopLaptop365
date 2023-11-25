@@ -68,6 +68,18 @@ public class DongLaptopDAO implements ShopLaptop365DAO<DongLaptop, Integer> {
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public DongLaptop selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DongLaptop selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

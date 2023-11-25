@@ -64,4 +64,16 @@ public class DoHoaCPU implements ShopLaptop365DAO<GPU, Integer> {
 		}
 	}
 
+	@Override
+	public GPU selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public GPU selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

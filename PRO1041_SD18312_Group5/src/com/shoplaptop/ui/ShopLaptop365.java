@@ -19,16 +19,15 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
-<<<<<<< HEAD:PRO1041_PM_Ban_Laptop/src/com/shoplaptop/ui/ShopLaptop365.java
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-=======
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
->>>>>>> 5333666a20df74651b67483a033cff49cf04782a:PRO1041_SD18312_Group5/src/com/shoplaptop/ui/ShopLaptop365.java
+
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {

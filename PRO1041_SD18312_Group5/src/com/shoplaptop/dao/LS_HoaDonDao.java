@@ -75,4 +75,16 @@ public class LS_HoaDonDao implements ShopLaptop365DAO<BaoCao_LS_HoaDon, String>{
 		}
 	}
 
+	@Override
+	public BaoCao_LS_HoaDon selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BaoCao_LS_HoaDon selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
