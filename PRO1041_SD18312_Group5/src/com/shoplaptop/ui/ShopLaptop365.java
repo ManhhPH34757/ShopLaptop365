@@ -21,9 +21,6 @@ import javax.swing.JSeparator;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class ShopLaptop365 extends JFrame {
@@ -166,6 +163,11 @@ public class ShopLaptop365 extends JFrame {
 		toolBar.add(separator);
 		
 		JButton btnKhchHng = new JButton("Khách hàng");
+		btnKhchHng.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new KhachHangJDialog().setVisible(true);
+			}
+		});
 		btnKhchHng.setIcon(new ImageIcon(ShopLaptop365.class.getResource("/com/shoplaptop/icon/Users.png")));
 		btnKhchHng.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnKhchHng.setHorizontalTextPosition(SwingConstants.CENTER);
