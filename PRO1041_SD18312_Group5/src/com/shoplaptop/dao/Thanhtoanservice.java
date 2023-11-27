@@ -70,4 +70,16 @@ public class Thanhtoanservice implements ShopLaptop365DAO<Hinhthucthanhtoan, Str
 		return list;
 	}
 
+	@Override
+	public Hinhthucthanhtoan selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Hinhthucthanhtoan selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

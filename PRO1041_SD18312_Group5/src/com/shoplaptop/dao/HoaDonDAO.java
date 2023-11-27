@@ -96,6 +96,18 @@ public class HoaDonDAO implements ShopLaptop365DAO<HoaDon, String> {
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public HoaDon selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HoaDon selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

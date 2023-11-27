@@ -127,6 +127,20 @@ public class PhieuDoiDAO implements ShopLaptop365DAO<PhieuDoi, String>{
 		
 		
 	}
+
+
+	@Override
+	public PhieuDoi selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public PhieuDoi selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

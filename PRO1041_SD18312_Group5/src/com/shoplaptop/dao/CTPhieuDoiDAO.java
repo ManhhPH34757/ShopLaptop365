@@ -187,6 +187,18 @@ public class CTPhieuDoiDAO implements ShopLaptop365DAO<CTPhieuDoi, String> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public CTPhieuDoi selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CTPhieuDoi selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

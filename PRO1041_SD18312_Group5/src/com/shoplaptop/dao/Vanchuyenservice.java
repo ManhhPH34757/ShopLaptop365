@@ -74,4 +74,16 @@ try {
 return list;
 	}
 
+	@Override
+	public Hinhthucvanchuyen selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Hinhthucvanchuyen selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

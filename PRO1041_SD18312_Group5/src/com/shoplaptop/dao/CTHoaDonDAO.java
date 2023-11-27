@@ -71,4 +71,16 @@ public class CTHoaDonDAO implements ShopLaptop365DAO<CTHoaDon, Integer>{
 		}
 	}
 
+	@Override
+	public CTHoaDon selectByMaKH(String MaKH) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CTHoaDon selectByTenKH(String Tenkh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
