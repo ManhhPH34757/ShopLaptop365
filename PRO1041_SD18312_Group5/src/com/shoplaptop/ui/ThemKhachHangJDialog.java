@@ -74,9 +74,9 @@ public class ThemKhachHangJDialog extends JDialog {
 		   
 		
 		JLabel lblNewLabel = new JLabel("THÊM KHÁCH HÀNG");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblNewLabel.setForeground(new Color(255, 128, 192));
-		lblNewLabel.setBounds(10, 11, 239, 20);
+		lblNewLabel.setBounds(10, 0, 239, 31);
 		getContentPane().add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
@@ -93,30 +93,37 @@ public class ThemKhachHangJDialog extends JDialog {
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Tên khách hàng :");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2.setBounds(0, 86, 134, 14);
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Mã khách hàng :");
+		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2_1.setBounds(0, 35, 134, 14);
 		panel.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("Số điện thoại :");
+		lblNewLabel_2_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2_2.setBounds(0, 143, 134, 14);
 		panel.add(lblNewLabel_2_2);
 		
 		JLabel lblNewLabel_2_3 = new JLabel("Địa chỉ :");
+		lblNewLabel_2_3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2_3.setBounds(0, 207, 134, 14);
 		panel.add(lblNewLabel_2_3);
 		
 		JLabel lblNewLabel_2_4 = new JLabel("Ngày sinh :");
+		lblNewLabel_2_4.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2_4.setBounds(351, 35, 134, 14);
 		panel.add(lblNewLabel_2_4);
 		
 		JLabel lblNewLabel_2_5 = new JLabel("Email :");
+		lblNewLabel_2_5.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2_5.setBounds(351, 86, 134, 14);
 		panel.add(lblNewLabel_2_5);
 		
 		JLabel lblNewLabel_2_6 = new JLabel("Giới tính :");
+		lblNewLabel_2_6.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel_2_6.setBounds(351, 143, 134, 14);
 		panel.add(lblNewLabel_2_6);
 		
@@ -146,11 +153,13 @@ public class ThemKhachHangJDialog extends JDialog {
 		panel.add(txtEmail);
 		
 		rdoNam = new JRadioButton("Nam");
-		rdoNam.setBounds(351, 167, 56, 23);
+		rdoNam.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		rdoNam.setBounds(351, 167, 74, 23);
 		panel.add(rdoNam);
 		
 		rdoNu = new JRadioButton("Nữ");
-		rdoNu.setBounds(507, 167, 45, 23);
+		rdoNu.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		rdoNu.setBounds(496, 167, 56, 23);
 		panel.add(rdoNu);
 		
 		ButtonGroup buttonGroup = new ButtonGroup();
