@@ -41,6 +41,35 @@ public class CTPhieuDoiDAO implements ShopLaptop365DAO<CTPhieuDoi, String> {
 			+ "	dbo.Laptop AS LapTop_New ON LapTop_New.ID = BienThe_New.ID_Laptop\r\n"
 			+ "WHERE MaPhieuDoi = ?";
 	
+	String SelectCTPhieuDoi_Xuat = "SELECT \r\n"
+			+ "	dbo.CTPhieuDoi.ID,\r\n"
+			+ "    dbo.PhieuDoi.ID AS 'ID_PhieuDoi', \r\n"
+			+ "    dbo.PhieuDoi.MaPhieuDoi,\r\n"
+			+ "    dbo.CTPhieuDoi.ID_Serial_Old AS 'ID_Serial_Old', \r\n"
+			+ "    SerialOld.SerialNumber AS 'SerialNumber_Old',\r\n"
+			+ "	   LapTop_Old.TenLaptop AS 'TenLapTop_Old',\r\n"
+			+ "	   BienThe_Old.Gia AS 'Gia_Old',\r\n"
+			+ "    dbo.CTPhieuDoi.ID_Serial_New AS 'ID_Serial_New', \r\n"
+			+ "    SerialNew.SerialNumber AS 'SerialNumber_New',\r\n"
+			+ "	LapTop_New.TenLaptop AS 'TenLapTop_New',\r\n"
+			+ "	   BienThe_New.Gia AS 'Gia_New'\r\n"
+			+ "FROM  \r\n"
+			+ "    dbo.CTPhieuDoi \r\n"
+			+ "JOIN \r\n"
+			+ "    dbo.PhieuDoi ON PhieuDoi.ID = CTPhieuDoi.ID_PhieuDoi\r\n"
+			+ "JOIN \r\n"
+			+ "    dbo.Serial AS SerialOld ON SerialOld.ID = CTPhieuDoi.ID_Serial_Old\r\n"
+			+ "JOIN \r\n"
+			+ "    dbo.Serial AS SerialNew ON SerialNew.ID = CTPhieuDoi.ID_Serial_New\r\n"
+			+ "JOIN \r\n"
+			+ "    dbo.BienThe AS BienThe_Old ON BienThe_Old.ID = SerialOld.ID_BienThe\r\n"
+			+ "JOIN \r\n"
+			+ "	dbo.BienThe AS BienThe_New ON BienThe_New.ID = SerialNew.ID_BienThe\r\n"
+			+ "JOIN \r\n"
+			+ "	dbo.Laptop AS LapTop_Old ON LapTop_Old.ID = BienThe_Old.ID_Laptop\r\n"
+			+ "JOIN \r\n"
+			+ "	dbo.Laptop AS LapTop_New ON LapTop_New.ID = BienThe_New.ID_Laptop\r\n";
+	
 	
 	
 	
@@ -86,7 +115,7 @@ public class CTPhieuDoiDAO implements ShopLaptop365DAO<CTPhieuDoi, String> {
 	@Override
 	public List<CTPhieuDoi> selectAll() {
 		
-		return null;
+		return selectBySQL(SelectCTPhieuDoi_Xuat);
 	}
 	public List<CTPhieuDoi> selectAllCTPhieuDoiByMaPhieuDoi(String MaPhieuDoi) {
 		return selectBySQL(SelectCTPhieuDoi_SQL, MaPhieuDoi);

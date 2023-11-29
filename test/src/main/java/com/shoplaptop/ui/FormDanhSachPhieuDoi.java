@@ -161,10 +161,14 @@ public class FormDanhSachPhieuDoi extends JDialog {
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					List<PhieuDoi> list_phieudoi = phieuDoiDAO.selectAll();					
+					XuatFile(list_phieudoi);
+					MsgBox.alert(getContentPane(), "Xuất file thành công");
+				} catch (Exception e2) {
+					MsgBox.alert(getContentPane(), "Xuất file thất bại");
+				}
 				
-				List<PhieuDoi> list_phieudoi = phieuDoiDAO.selectAll();
-				
-				XuatFile(list_phieudoi);
 				
 			}
 		});
@@ -345,7 +349,7 @@ public class FormDanhSachPhieuDoi extends JDialog {
             headerRow2.createCell(4).setCellValue("Giá mới");
             
             
-            List<CTPhieuDoi> list_ctphieudoi = ctPhieuDoiDAO.selectAllCTPhieuDoiByMaPhieuDoi(maPhieuDoi);
+            List<CTPhieuDoi> list_ctphieudoi = ctPhieuDoiDAO.selectAll();
 
             for (int i = 0; i < list_ctphieudoi.size(); i++) {
                 CTPhieuDoi ctPhieuDoi = list_ctphieudoi.get(i);
