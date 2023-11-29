@@ -11,12 +11,13 @@ import com.shoplaptop.entity.BaoCao_LS_HoaDon;
 import com.shoplaptop.utils.XJdbc;
 
 public class LS_HoaDonDao implements ShopLaptop365DAO<BaoCao_LS_HoaDon, String>{
+	
 	Connection connection = new XJdbc().Connect();
 	Statement st = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 	
-	String SellectAll = "SELECT * FROM dbo.LS_PhieuDoi WHERE MaNV =?";
+	String SellectAll = "select LS_HoaDon.manv,maHD,Lichsulamviec from LS_HoaDon join HoaDon on LS_HoaDon.mahoadon = Hoadon.id where LS_Hoadon.manv =?";
 	
 	String  deleteSQL = "DELETE FROM dbo.LS_HoaDon WHERE MaNV = ?";
 			
@@ -63,7 +64,7 @@ public class LS_HoaDonDao implements ShopLaptop365DAO<BaoCao_LS_HoaDon, String>{
 			while (rs.next()) {
 				BaoCao_LS_HoaDon baoCao = new BaoCao_LS_HoaDon();
 				baoCao.setManv(rs.getString("MaNV"));
-				baoCao.setMahd(rs.getString("MaHoaDon"));
+				baoCao.setMahd(rs.getString("maHD"));
 				baoCao.setLS(rs.getString("LichSuLamViec"));
 				list.add(baoCao);
 				
@@ -74,5 +75,6 @@ public class LS_HoaDonDao implements ShopLaptop365DAO<BaoCao_LS_HoaDon, String>{
 			throw new RuntimeException();
 		}
 	}
+
 
 }

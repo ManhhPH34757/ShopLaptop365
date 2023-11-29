@@ -370,11 +370,7 @@ public class QLNhanVien extends JDialog {
 		});
 		btnnext.setBounds(909, 537, 85, 21);
 		getContentPane().add(btnnext);
-		
-		
-		
-		lblTo_1.setText(rows+"");
-		
+		lblTo_1.setText(rows+"");	
 		JButton btnNewButton = new JButton("Reset");
 		btnNewButton.setIcon(new ImageIcon(QLNhanVien.class.getResource("/com/shoplaptop/icon/Refresh.png")));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -492,7 +488,6 @@ public class QLNhanVien extends JDialog {
 			dao.insert(taiKhoan);
 //			filltable(service.selectAll());
 			filltable(service.sellectAllNhanVien((index - 1)*3+1));
-			
 			clearForm();
 			MsgBox.alert(contentPanel,"Insert thành công");
 		} catch (Exception e) {

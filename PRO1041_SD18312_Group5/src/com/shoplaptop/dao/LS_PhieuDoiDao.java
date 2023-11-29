@@ -18,7 +18,8 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 	
-	String SellectALl = "SELECT * FROM dbo.LS_PhieuDoi";
+	String SellectALl = "SELECT LS_phieudoi.manv,maphieudoi,lichsulamviec FROM dbo.LS_PhieuDoi join PhieuDoi on phieudoi.id=LS_phieudoi.Phieudoi  where LS_Phieudoi.manv = ?";
+	
 	String deletesql = "DELETE FROM dbo.LS_PhieuDoi WHERE MaNV = ?";
 	
 	@Override
@@ -52,7 +53,7 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 
 	@Override
 	public List<BaoCao_LS_PhieuDoi> selectAll() {
-		// TODO Auto-generated method stub
+		
 		return selectBySQL(SellectALl);
 	}
 
@@ -64,7 +65,7 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 			while (rs.next()) {
 				BaoCao_LS_PhieuDoi baoCao = new BaoCao_LS_PhieuDoi();
 				baoCao.setManv(rs.getString("MaNV"));
-				baoCao.setMahd(rs.getString("MaHoaDon"));
+				baoCao.setMaphieudoi(rs.getString("maphieudoi"));;
 				baoCao.setLS(rs.getString("LichSuLamViec"));
 				list.add(baoCao);
 				
@@ -75,6 +76,7 @@ public class LS_PhieuDoiDao implements ShopLaptop365DAO<BaoCao_LS_PhieuDoi, Stri
 			throw new RuntimeException();
 		}
 	}
-	}
+
+}
 
 
