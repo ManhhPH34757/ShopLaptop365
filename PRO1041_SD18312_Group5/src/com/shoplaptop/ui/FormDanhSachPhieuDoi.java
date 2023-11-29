@@ -20,6 +20,7 @@ import com.shoplaptop.entity.PhieuDoi;
 import com.shoplaptop.utils.MsgBox;
 import com.shoplaptop.utils.XDate;
 
+import javax.sound.midi.Soundbank;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JInternalFrame;
@@ -97,6 +98,11 @@ public class FormDanhSachPhieuDoi extends JDialog {
 		panel.add(txtTimKiem);
 		
 		JButton btnTimKiem = new JButton("Tìm Kiếm");
+		btnTimKiem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FindByMaPhieuDoi();
+			}
+		});
 		btnTimKiem.setForeground(new Color(64, 0, 0));
 		btnTimKiem.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnTimKiem.setBackground(new Color(255, 128, 128));
@@ -162,7 +168,7 @@ public class FormDanhSachPhieuDoi extends JDialog {
 		tblDanhSachPhieuDoiChiTiet.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 2) {
+				
 					int index = tblDanhSachPhieuDoiChiTiet.getSelectedRow();
 					PhieuDoi phieuDoi = phieuDoiDAO.selectAllSetForm().get(index);
 					CTPhieuDoi ctPhieuDoi = (CTPhieuDoi) ctPhieuDoiDAO.selectAllCTPhieuDoiSetForm(maPhieuDoi).get(index);
@@ -171,7 +177,7 @@ public class FormDanhSachPhieuDoi extends JDialog {
 					setFormCTPhieuDoi(ctPhieuDoi);
 					
 					
-				}
+				
 			}
 		});
 		fillTablePhieuDoi();
@@ -237,14 +243,20 @@ public class FormDanhSachPhieuDoi extends JDialog {
 			System.out.println(e);
 		}
 	}
-//	public void FindByMaPhieuDoi() {
-//		String MaPhieuDoi = txtTimKiem.getText();
-//		if (MaPhieuDoi.trim().isEmpty()) {
-//			MaPhieuDoi = "%%";
-//		}
-//		list = phieuDoiDAO.selectById(SelectPhieuDoiByMaPhieuDoi,)
-//		
-//	}
+	public void FindByMaPhieuDoi() {
+		try {
+			String MaPhieuDoi = txtTimKiem.getText();
+			if (MaPhieuDoi.trim().isEmpty()) {
+				MaPhieuDoi = "%%";
+			}
+			List<PhieuDoi> list = phieuDoiDAO.selectAll();
+			list = phieuDoiDAO.selectBySQL(SelectPhieuDoiByMaPhieuDoi,"%"+ MaPhieuDoi +"%");
+			fillTablePhieuDoi();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+	}
 	
 	public void setFormPhieuDoi(PhieuDoi phieuDoi) {
 		ChiTietPhieuDoiView.txtMaPhieuDoi.setText(phieuDoi.getMaPhieuDoi());

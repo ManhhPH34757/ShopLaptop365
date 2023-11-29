@@ -11,6 +11,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\GiangPH34761\Phongtt\sample-cashier-view"/>
 			<item value="D:\GiangPH34761\PRO1041\PMLapTop365\ShopLaptop365\PRO1041_SD18312_Group5"/>
 			<item value="C:\Users\PC\Downloads\test"/>
 		</list>
