@@ -24,9 +24,9 @@ public class BaoCao extends JDialog {
 	private List<BaoCao_LS_HoaDon> list;
 	private LS_HoaDonDao dao = new LS_HoaDonDao();
 	private LS_PhieuDoiDao dao2 = new LS_PhieuDoiDao();
-//	private LS_NhanVien ls_NhanVien;
-	String SellectAll = "SELECT * FROM dbo.LS_HoaDon WHERE MaNV =?";
-	String Sellectall_1 = "SELECT * FROM dbo.LS_PhieuDoi WHERE MaNV =?";
+
+	String SellectAll = "select LS_HoaDon.manv,maHD,Lichsulamviec from LS_HoaDon join HoaDon on LS_HoaDon.mahoadon = Hoadon.id where LS_Hoadon.manv =?";
+	String Sellectall_1 = "SELECT LS_phieudoi.manv,maphieudoi,lichsulamviec FROM dbo.LS_PhieuDoi join PhieuDoi on phieudoi.id=LS_phieudoi.Phieudoi where LS_Phieudoi.manv = ?";
 	private JTable tblPhieuDoi;
 	/**
 	 * Launch the application.
@@ -45,9 +45,7 @@ public class BaoCao extends JDialog {
 //		});
 //	}
 
-	/**
-	 * Create the dialog.
-	 */
+
 	public BaoCao() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(BaoCao.class.getResource("/com/shoplaptop/icon/365_1.png")));
 		setTitle("ShopLapTop365\r\n");
@@ -75,20 +73,18 @@ public class BaoCao extends JDialog {
 		String[] colums = new String[] {"Mã nhân viên","Mã hóa đơn","Lịch sử làm việc"};
 		model.setColumnIdentifiers(colums);
 		
-		
-		tblPhieuDoi = new JTable(model);
-		scrollPane_1.setViewportView(tblPhieuDoi);
-		filltablePhieuDoi(dao2.selectBySQL(Sellectall_1, LS_NhanVien.txtmanhanvien.getText()));
-		
-		model = new DefaultTableModel();
-		String[] cloums = new String[] {"Mã Nhân Viên","Mã Hóa Đơn","Lịch Sử Làm Việc"};
-		model.setColumnIdentifiers(cloums);
-		
 		tblhoadon = new JTable(model);
 		scrollPane.setViewportView(tblhoadon);
 		filltableHoaDon(dao.selectBySQL(SellectAll, LS_NhanVien.txtmanhanvien.getText()));
 		
+		model = new DefaultTableModel();
+		String[] cloums = new String[] {"Mã Nhân Viên","Mã Phiếu Đổi","Lịch Sử Làm Việc"};
+		model.setColumnIdentifiers(cloums);
 		
+		tblPhieuDoi = new JTable(model);
+		scrollPane_1.setViewportView(tblPhieuDoi);
+		filltablePhieuDoi(dao2.selectBySQL(Sellectall_1, LS_NhanVien.txtmanhanvien.getText()));
+			
 
 	}
 	public void filltableHoaDon(List<BaoCao_LS_HoaDon> list) {
@@ -107,7 +103,7 @@ public class BaoCao extends JDialog {
 		for (BaoCao_LS_PhieuDoi baoCao_LS_PhieuDoi : list) {
 			Object[] rows = new Object[] {
 				baoCao_LS_PhieuDoi.getManv(),
-				baoCao_LS_PhieuDoi.getMahd(),
+				baoCao_LS_PhieuDoi.getMaphieudoi(),
 				baoCao_LS_PhieuDoi.getLS()
 			};
 			model.addRow(rows);
